@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import Axios from "../axios";
-import _ from "lodash";
-import lista from "../songs.json";
+import { useState, useEffect } from 'react';
+import Axios from '../axios';
+import _ from 'lodash';
+import lista from '../songs.json';
 import {
   Table,
   TableBody,
@@ -9,25 +9,30 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+let height = null;
+if (process.browser) {
+  height = window.innerHeight;
+}
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
     marginBottom: 10,
-    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
   container: {
-    maxHeight: `${window.innerHeight - 115}px`,
+    maxHeight: `${height - 136}px`,
   },
 });
 
 const SongList = () => {
   useEffect(() => {
     setMusicas(
-      _.sortBy(lista, "Artist").map((m, index) => {
+      _.sortBy(lista, 'Artist').map((m, index) => {
         m.Codigo = index + 1;
         return m;
       })
@@ -36,15 +41,8 @@ const SongList = () => {
 
   const classes = useStyles();
   const [musicas, setMusicas] = useState([]);
-  const [sortSelecionado, setSortSelecionado] = useState("Artist");
-  const [success, setSuccess] = useState(false);
-
-  const handleCloseSuccess = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setSuccess(false);
-  };
+  const [sortSelecionado, setSortSelecionado] = useState('Artist');
+  console.log(height);
 
   const ordenaLista = (campo) => {
     if (campo !== sortSelecionado) {
@@ -63,11 +61,11 @@ const SongList = () => {
   };
 
   const copiaCodigo = (codigo) => {
-    const el = document.createElement("textarea");
+    const el = document.createElement('textarea');
     el.value = codigo;
     document.body.appendChild(el);
     el.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     document.body.removeChild(el);
     alert(
       `Codigo ${codigo} copiado! Agora use este código lá no pedido da música...`
@@ -75,17 +73,17 @@ const SongList = () => {
   };
 
   return (
-    <div className="dashboardContainer" style={{ padding: "10px" }}>
+    <div className="dashboardContainer" style={{ padding: '10px' }}>
       <div className={classes.root}>
         <TableContainer className={classes.container}>
           <Table stickyHeader size="small" aria-label="a dense sticky table">
             <TableHead>
               <TableRow>
                 <TableCell className="avisoCell">
-                  IMPORTANTE! Clique na música para copiar o{" "}
-                  <b style={{ color: "#29B8FF" }}>código</b> e use lá no item
-                  "Pedir Música" da 🍑 loja do canal, use SOMENTE o{" "}
-                  <b style={{ color: "#29B8FF" }}>código</b> na mensagem de
+                  IMPORTANTE! Clique na música para copiar o{' '}
+                  <b style={{ color: '#29B8FF' }}>código</b> e use lá no item
+                  "Pedir Música" da 🍑 loja do canal, use SOMENTE o{' '}
+                  <b style={{ color: '#29B8FF' }}>código</b> na mensagem de
                   compra!
                 </TableCell>
               </TableRow>
@@ -113,56 +111,56 @@ const SongList = () => {
               <TableRow>
                 <TableCell
                   style={{
-                    backgroundColor: "rgb(50, 50, 52)",
-                    color: "#29B8FF",
-                    fontWeight: "bold",
+                    backgroundColor: 'rgb(50, 50, 52)',
+                    color: '#29B8FF',
+                    fontWeight: 'bold',
                   }}
-                  onClick={() => ordenaLista("Codigo")}
+                  onClick={() => ordenaLista('Codigo')}
                 >
                   Código
                 </TableCell>
                 <TableCell
                   className="headerCell"
-                  onClick={() => ordenaLista("Name")}
+                  onClick={() => ordenaLista('Name')}
                 >
-                  Música{" "}
-                  {sortSelecionado === "Name" ? (
+                  Música{' '}
+                  {sortSelecionado === 'Name' ? (
                     <b className="sortIcon">↓</b>
                   ) : null}
                 </TableCell>
                 <TableCell
                   className="headerCell"
-                  onClick={() => ordenaLista("Artist")}
+                  onClick={() => ordenaLista('Artist')}
                 >
-                  Artista{" "}
-                  {sortSelecionado === "Artist" ? (
+                  Artista{' '}
+                  {sortSelecionado === 'Artist' ? (
                     <b className="sortIcon">↓</b>
                   ) : null}
                 </TableCell>
                 <TableCell
                   className="headerCell"
-                  onClick={() => ordenaLista("Album")}
+                  onClick={() => ordenaLista('Album')}
                 >
-                  Álbum{" "}
-                  {sortSelecionado === "Album" ? (
+                  Álbum{' '}
+                  {sortSelecionado === 'Album' ? (
                     <b className="sortIcon">↓</b>
                   ) : null}
                 </TableCell>
                 <TableCell
                   className="headerCell"
-                  onClick={() => ordenaLista("Playlist")}
+                  onClick={() => ordenaLista('Playlist')}
                 >
-                  Playlist{" "}
-                  {sortSelecionado === "Playlist" ? (
+                  Playlist{' '}
+                  {sortSelecionado === 'Playlist' ? (
                     <b className="sortIcon">↓</b>
                   ) : null}
                 </TableCell>
                 <TableCell
                   className="headerCell"
-                  onClick={() => ordenaLista("Charter")}
+                  onClick={() => ordenaLista('Charter')}
                 >
-                  Criador{" "}
-                  {sortSelecionado === "Charter" ? (
+                  Criador{' '}
+                  {sortSelecionado === 'Charter' ? (
                     <b className="sortIcon">↓</b>
                   ) : null}
                 </TableCell>
