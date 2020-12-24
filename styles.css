@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+* {
+  font-family: 'Aldrich', sans-serif;
+}
+
+code {
+  font-family: 'Aldrich', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Aldrich', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.avisoCell {
+  background-color: rgba(50, 50, 52, 1) !important;
+  color: red !important;
+  font-weight: bold !important;
+}
+
+.dicaCell {
+  background-color: rgba(50, 50, 52, 1) !important;
+  color: #00ff00 !important;
+  font-weight: bold !important;
+}
+
+.headerCell {
+  background-color: rgba(50, 50, 52, 1) !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.headerCell:hover {
+  cursor: pointer;
+  background-color: #fff !important;
+  color: rgb(50, 50, 52) !important;
+}
+
+.sortIcon {
+  color: #00ff00;
+}
+
+.linhaMusicaLista {
+  background-color: rgba(50, 50, 52, 0.9) !important;
+}
+
+.linhaMusicaLista:hover {
+  cursor: pointer;
+  background-color: rgba(50, 50, 52, 1) !important;
+  font-weight: bold !important;
+}
+
+.codigoCell {
+  color: #29b8ff !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+}
+
+.defaultCell {
+  color: #fff !important;
+}
+
+.Container {
+  text-align: center;
+  background: none;
+}
+
+.dashboardContainer:before,
+.dashboardContainer:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #fb0094,
+    #ff0000,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #fb0094,
+    #ff0000,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #fb0094,
+    #ff0000,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #fb0094,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: steam 40s linear infinite;
+  z-index: -1;
+}
+
+.alertas {
+  position: absolute;
+  bottom: 0px;
+  padding: 0 30px;
+  width: 540px;
+}
+
+.linhaMusica:hover {
+  cursor: pointer;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.alertaFadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.alertafadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.nomeUser {
+  font-weight: 900;
+  font-size: 32px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.mensagem {
+  margin-top: 0;
+  font-size: 28px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.gira {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  animation: spin infinite 2.5s linear;
+}
+
+.blocoLayout {
+  position: absolute;
+  top: 0;
+  height: 540px;
+  width: 700px;
+}
+
+.webcamRainbow {
+  opacity: 0.6;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamRainbow:before,
+.webcamRainbow:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #fb0094,
+    #ff0000,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #fb0094,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: steam 20s linear infinite;
+}
+
+.webcamRainbow:after {
+  filter: blur(10px);
+}
+
+.webcamBlack {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamBlack:before,
+.webcamBlack:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: black;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamBlack:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamBlue {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamBlue:before,
+.webcamBlue:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #0051ff;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamBlue:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamPink {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamPink:before,
+.webcamPink:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #ff00c0;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamPink:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamGreen {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamGreen:before,
+.webcamGreen:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #36ff00;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamGreen:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamRed {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamRed:before,
+.webcamRed:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #ff0000;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamRed:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamPurple {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamPurple:before,
+.webcamPurple:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #9147ff;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamPurple:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamWhite {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamWhite:before,
+.webcamWhite:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #ffffff;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamWhite:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamYellow {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamYellow:before,
+.webcamYellow:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #ffff00;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamYellow:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+.webcamOrange {
+  opacity: 0.7;
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 640px;
+  height: 480px;
+}
+
+.webcamOrange:before,
+.webcamOrange:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: #ff9900;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.webcamOrange:after {
+  filter: blur(10px);
+  animation: pulse 2s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
