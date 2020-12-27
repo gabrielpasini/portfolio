@@ -39,7 +39,7 @@ const SongList = () => {
   useEffect(() => {
     setLoading(true);
     setMusicas(
-      _.sortBy(lista, 'Artist').map((m, index) => {
+      lista.map((m, index) => {
         m.Codigo = index + 1;
         return m;
       })
@@ -49,14 +49,14 @@ const SongList = () => {
 
   const classes = useStyles();
   const [musicas, setMusicas] = useState([]);
-  const [sortSelecionado, setSortSelecionado] = useState('Artist');
+  const [sortSelecionado, setSortSelecionado] = useState('Codigo');
   const [loading, setLoading] = useState(false);
 
   const ordenaLista = (campo) => {
     if (campo !== sortSelecionado) {
       setLoading(true);
       setSortSelecionado(campo);
-      setMusicas(_.sortBy(musicas, campo));
+      setMusicas(_.orderBy(musicas, campo));
       setLoading(false);
     }
   };
@@ -126,14 +126,13 @@ const SongList = () => {
               <TableHead>
                 <TableRow>
                   <TableCell
-                    style={{
-                      backgroundColor: 'rgb(50, 50, 52)',
-                      color: '#29B8FF',
-                      fontWeight: 'bold',
-                    }}
+                    className="headerCellCodigo headerCell"
                     onClick={() => ordenaLista('Codigo')}
                   >
                     Código
+                    {sortSelecionado === 'Codigo' ? (
+                      <b className="sortIcon">↓</b>
+                    ) : null}
                   </TableCell>
                   <TableCell
                     className="headerCell"

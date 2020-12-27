@@ -73,7 +73,7 @@ const Fila = () => {
             const { data } = await Axios.get(`songlist/${message}`);
             if (data.length) {
               ComfyJS.Say(
-                `/me ${user} Esta música já foi pedida, tente outra...`
+                `/me ${user} Lamento mas esta música já foi pedida, tente outra...`
               );
               break;
             }
