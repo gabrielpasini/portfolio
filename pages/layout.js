@@ -10,8 +10,8 @@ const Layout = () => {
 
   useEffect(() => {
     ComfyJS.Init(
-      process.env.REACT_APP_TWITCHUSER,
-      process.env.REACT_APP_OAUTH,
+      'bot_faiskola',
+      'oauth:dkzg3l9lk0akbnw6qr0dahmep9jmph',
       'f4isk4'
     );
     setTimeout(

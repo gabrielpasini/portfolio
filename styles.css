@@ -18,6 +18,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.titleCell {
+  background-color: rgba(50, 50, 52, 1) !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.rankCell {
+  width: 10% !important;
+}
+
 .avisoCell {
   background-color: rgba(50, 50, 52, 1) !important;
   color: red !important;
@@ -48,6 +58,10 @@ body {
 
 .linhaMusicaLista {
   background-color: rgba(50, 50, 52, 0.9) !important;
+}
+
+.linhaNenhumDado {
+  position: fixed;
 }
 
 .linhaMusicaLista:hover {

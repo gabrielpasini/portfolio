@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const Home = () => {
   return (
@@ -22,6 +22,11 @@ const Home = () => {
       <h2>
         <Link href="/fila">
           <a>Fila</a>
+        </Link>
+      </h2>
+      <h2>
+        <Link href="/leaderboard">
+          <a>Leaderboard</a>
         </Link>
       </h2>
     </>
