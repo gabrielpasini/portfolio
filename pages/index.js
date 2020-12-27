@@ -2,34 +2,34 @@ import Link from 'next/link';
 
 const Home = () => {
   return (
-    <>
+    <div className="dashboardContainer homeContainer">
       <h1>Home</h1>
       <h2>
         <Link href="/layout">
-          <a>Layout</a>
+          <a className="homeLinks">Layout</a>
         </Link>
       </h2>
       <h2>
         <Link href="/alerts">
-          <a>Alertas</a>
-        </Link>
-      </h2>
-      <h2>
-        <Link href="/songlist">
-          <a>Lista</a>
+          <a className="homeLinks">Alertas</a>
         </Link>
       </h2>
       <h2>
         <Link href="/fila">
-          <a>Fila</a>
+          <a className="homeLinks">Fila</a>
+        </Link>
+      </h2>
+      <h2>
+        <Link href="/songlist">
+          <a className="homeLinks">Lista</a>
         </Link>
       </h2>
       <h2>
         <Link href="/leaderboard">
-          <a>Leaderboard</a>
+          <a className="homeLinks">Leaderboard</a>
         </Link>
       </h2>
-    </>
+    </div>
   );
 };
 export default Home;

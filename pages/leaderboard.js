@@ -110,7 +110,7 @@ const Leaderboard = () => {
                     </IconButton>
                   </TableCell>
                   <TableCell className="titleCell">Usuário</TableCell>
-                  <TableCell className="titleCell">Pedidos</TableCell>
+                  <TableCell className="titleCell">Músicas Pedidas</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
