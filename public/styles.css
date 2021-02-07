@@ -91,7 +91,7 @@ header {
 header .text-logo {
   position: absolute;
   z-index: 1;
-  top: 45%;
+  top: 40%;
   left: 20%;
   width: 60%;
   margin: 0;
@@ -120,7 +120,6 @@ header .scrolldown {
   display: block;
   height: 42px;
   width: 42px;
-  font-size: 20px;
   line-height: 42px;
   color: #fff;
   border-radius: 100%;
@@ -130,6 +129,12 @@ header .scrolldown {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+header .scrolldown .icon {
+  margin: 2px;
+  height: 38px;
+  width: 38px;
 }
 
 header .scrolldown:hover {
@@ -234,7 +239,7 @@ header .scrolldown:hover {
 }
 
 #resume h1 span {
-  border-bottom: 3px solid #3662ab;
+  border-bottom: 3px solid #30a2ff;
   padding-bottom: 6px;
 }
 
@@ -291,13 +296,21 @@ header .scrolldown:hover {
   top: -36px;
 }
 
+.bars li span .icon {
+  color: #fff;
+  padding-top: 3px;
+  padding-left: 3px;
+  width: 36px;
+  height: 36px;
+}
+
 .bar-expand {
   position: absolute;
   left: 0;
   top: 0;
   margin: 0;
   padding-right: 24px;
-  background: #313131;
+  background: #333;
   display: inline-block;
   height: 42px;
   line-height: 42px;
@@ -318,6 +331,8 @@ header .scrolldown:hover {
 #portfolio .row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #portfolio h1 {
@@ -339,8 +354,8 @@ header .scrolldown:hover {
   background: #fff;
   overflow: hidden;
   position: relative;
-  height: 120px;
-  width: 120px;
+  height: 180px;
+  width: 180px;
 
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -350,8 +365,8 @@ header .scrolldown:hover {
 }
 
 .portfolio-item .item-wrap img {
-  margin-top: -10%;
   width: 100%;
+  min-height: 100%;
   height: auto;
 }
 
@@ -377,15 +392,14 @@ header .scrolldown:hover {
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
 
-  background: #000 repeat;
+  background: rgba(0, 0, 0, 0.7);
 }
 .portfolio-item .item-wrap .link-icon {
   display: block;
   color: #fff;
   height: 30px;
   width: 30px;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 16px;
   text-align: center;
 
   opacity: 0;
@@ -407,14 +421,15 @@ header .scrolldown:hover {
   vertical-align: bottom;
 }
 .portfolio-item .portfolio-item-meta {
-  padding: 18px;
+  padding: 10px;
 }
 .portfolio-item .portfolio-item-meta h5 {
-  font: 14px/21px 'opensans-bold', sans-serif;
+  font: 18px 'opensans-bold', sans-serif;
   color: #fff;
+  line-height: 16px;
 }
 .portfolio-item .portfolio-item-meta p {
-  font: 12px/18px 'opensans-light', sans-serif;
+  font: 14px 'opensans-light', sans-serif;
   color: #c6c7c7;
   margin-bottom: 0;
 }
@@ -432,224 +447,98 @@ header .scrolldown:hover {
 }
 
 /* ------------------------------------------------------------------ */
-/* f. Call To Action Section
-/* ------------------------------------------------------------------ */
-
-#call-to-action {
-  background: #212121;
-  padding-top: 66px;
-  padding-bottom: 48px;
-}
-#call-to-action h1 {
-  font: 18px/24px 'opensans-bold', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #fff;
-}
-#call-to-action h1 span {
-  display: none;
-}
-#call-to-action .header-col h1:before {
-  font-family: 'FontAwesome';
-  content: '\f0ac';
-  padding-right: 10px;
-  font-size: 72px;
-  line-height: 72px;
-  text-align: left;
-  float: left;
-  color: #fff;
-}
-#call-to-action .action {
-  margin-top: 12px;
-}
-#call-to-action h2 {
-  font: 28px/36px 'opensans-bold', sans-serif;
-  color: #ebeeee;
-  margin-bottom: 6px;
-}
-#call-to-action h2 a {
-  color: inherit;
-}
-#call-to-action p {
-  color: #636363;
-  font-size: 17px;
-}
-/*#
-call-to-action .button {
-	color:#fff;
-   background: #0D0D0D;
-}
-*/
-#call-to-action .button:hover,
-#call-to-action .button:active {
-  background: #ffffff;
-  color: #0d0d0d;
-}
-#call-to-action p span {
-  color: #d8d8d8;
-}
-
-/* Flex Slider
-/* ------------------------------------------------------------------ */
-
-/* Reset */
-.flexslider a:active,
-.flexslider a:focus {
-  outline: none;
-}
-.slides,
-.flex-control-nav,
-.flex-direction-nav {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.slides li {
-  margin: 0;
-  padding: 0;
-}
-
-/* Necessary Styles */
-.flexslider {
-  position: relative;
-  zoom: 1;
-  margin: 0;
-  padding: 0;
-}
-.flexslider .slides {
-  zoom: 1;
-}
-.flexslider .slides > li {
-  position: relative;
-}
-
-/* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides > li {
-  display: none;
-  -webkit-backface-visibility: hidden;
-}
-/* Suggested container for slide animation setups. Can replace this with your own */
-.flex-container {
-  zoom: 1;
-  position: relative;
-}
-
-/* Clearfix for .slides */
-.slides:before,
-.slides:after {
-  content: ' ';
-  display: table;
-}
-.slides:after {
-  clear: both;
-}
-
-/* No JavaScript Fallback */
-/* If you are not using another script, such as Modernizr, make sure you
- * include js that eliminates this class on page load */
-.no-js .slides > li:first-child {
-  display: block;
-}
-
-/* Slider Styles */
-.slides {
-  zoom: 1;
-}
-.slides > li {
-  /*margin-right: 5px; */
-  overflow: hidden;
-}
-
-/* Control Nav */
-.flex-control-nav {
-  width: 100%;
-  position: absolute;
-  bottom: -20px;
-  text-align: left;
-}
-.flex-control-nav li {
-  margin: 0 6px;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-}
-.flex-control-paging li a {
-  width: 12px;
-  height: 12px;
-  display: block;
-  background: #ddd;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  text-indent: -9999px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -o-border-radius: 20px;
-  border-radius: 20px;
-  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3);
-}
-.flex-control-paging li a:hover {
-  background: #ccc;
-  background: rgba(255, 255, 255, 0.7);
-}
-.flex-control-paging li a.flex-active {
-  background: #fff;
-  background: rgba(255, 255, 255, 0.9);
-  cursor: default;
-}
-
-/* ------------------------------------------------------------------ */
 /* h. Contact Section
 /* ------------------------------------------------------------------ */
 
 #contact {
-  background: #191919;
+  background: #333;
   padding: 5%;
   padding-top: 80px;
-  color: #636363;
+  color: #ccc;
 }
+
+#contact .row {
+  display: flex;
+  flex-direction: row;
+}
+
+#contact .row fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 #contact .section-head {
   margin-bottom: 42px;
 }
 
+#contact .section-head .icon {
+  width: 80px;
+  height: 80px;
+  padding: 0 12px;
+}
+
+#contact p.lead {
+  font-size: 24px;
+  margin-left: 30px;
+}
+
+#contact .row .email {
+  width: 60%;
+  margin-right: 5%;
+}
+
+#contact .row .contatos {
+  width: 35%;
+}
+
+@media (max-width: 768px) {
+  #contact .row {
+    flex-direction: column;
+  }
+  #contact .row .email {
+    width: 100%;
+    margin: 0;
+  }
+  #contact .row .contatos {
+    width: 100%;
+  }
+}
+
 #contact a,
 #contact a:visited {
-  color: #0762f9;
+  color: #30a2ff;
 }
+
 #contact a:hover,
 #contact a:focus {
   color: #fff;
 }
 
-#contact h1 {
-  font: 18px/24px 'opensans-bold', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #ebeeee;
-  margin-bottom: 6px;
-}
-#contact h1 span {
-  display: none;
-}
-#contact h1:before {
-  /* font-family: "FontAwesome"; */
-  content: '\f0e0';
-  padding-right: 10px;
-  font-size: 72px;
-  line-height: 72px;
-  text-align: left;
-  float: left;
-  color: #ebeeee;
+#contact .row .contatos p {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 0 0 16px;
+  color: #ccc;
 }
 
-#contact h4 {
-  font: 16px/24px 'opensans-bold', sans-serif;
-  color: #ebeeee;
-  margin-bottom: 6px;
+#contact .row .contatos .whats-qrcode {
+  margin: 5%;
+  width: 90%;
+  height: auto;
+  cursor: pointer;
+
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
-#contact p.lead {
-  font: 18px/36px 'opensans-light', sans-serif;
-  padding-right: 3%;
+
+#contact .row .contatos .whats-qrcode:hover {
+  margin: 0;
+  width: 100%;
 }
+
 #contact .header-col {
   padding-top: 6px;
 }
@@ -658,51 +547,69 @@ call-to-action .button {
 #contact form {
   margin-bottom: 30px;
 }
+
 #contact label {
   font: 15px/24px 'opensans-bold', sans-serif;
   margin: 12px 0;
-  color: #ebeeee;
+  color: #fff;
   display: inline-block;
   float: left;
-  width: 26%;
+  width: 30%;
 }
+
+#contact textarea {
+  resize: none;
+}
+
 #contact input,
 #contact textarea,
 #contact select {
-  padding: 10px 20px;
-  color: #eee;
-  background: #373233;
-  margin-bottom: 42px;
+  padding: 10px 10px;
+  color: #fff;
+  background: #000;
+  margin: 0 0 16px;
   border: 0;
   outline: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
-  width: 65%;
+  width: 60%;
 }
+
 #contact input:focus,
 #contact textarea:focus,
 #contact select:focus {
   color: #fff;
-  background-color: #0762f9;
+  background-color: #30a2ff;
 }
+
 #contact button.submit {
+  font-family: Anton;
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #fff;
-  background: #0d0d0d;
-  border: none;
+  text-decoration: none;
   cursor: pointer;
   height: auto;
-  display: inline-block;
-  border-radius: 0px;
-  margin-left: 26%;
+  display: relative;
+  margin-left: 30%;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  background: #000;
+
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
+
 #contact button.submit:hover {
-  color: #0d0d0d;
+  color: #888;
   background: #fff;
 }
+
 #contact span.required {
-  color: #0762f9;
+  color: #30a2ff;
   font-size: 13px;
 }
 #message-warning,
@@ -718,7 +625,7 @@ call-to-action .button {
   color: #d72828;
 }
 #message-success {
-  color: #0762f9;
+  color: #00aa00;
 }
 
 #message-warning i,
@@ -732,24 +639,6 @@ call-to-action .button {
   top: 17px;
 }
 
-/* Twitter Feed */
-#twitter {
-  margin-top: 12px;
-  padding: 0;
-}
-#twitter li {
-  margin: 6px 0px 12px 0;
-  line-height: 30px;
-}
-#twitter li span {
-  display: block;
-}
-#twitter li b a {
-  font: 13px/36px 'opensans-regular', Sans-serif;
-  color: #474747 !important;
-  border: none;
-}
-
 /* ------------------------------------------------------------------ */
 /* i. Footer
 /* ------------------------------------------------------------------ */
@@ -757,7 +646,7 @@ call-to-action .button {
 footer {
   padding-top: 48px;
   margin-bottom: 48px;
-  color: #303030;
+  color: #333;
   font-size: 14px;
   text-align: center;
   position: relative;
@@ -765,7 +654,7 @@ footer {
 
 footer a,
 footer a:visited {
-  color: #525252;
+  color: #ccc;
 }
 footer a:hover,
 footer a:focus {
@@ -775,43 +664,36 @@ footer a:focus {
 /* copyright */
 footer .copyright {
   margin: 0;
-  padding: 0;
-}
-footer .copyright li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  line-height: 24px;
-}
-.ie footer .copyright li {
-  display: inline;
-}
-footer .copyright li:before {
-  content: '\2022';
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #095153;
-}
-footer .copyright li:first-child:before {
-  display: none;
+  padding: 0 0 10px 0;
 }
 
 /* social links */
-footer .social-links {
-  margin: 18px 0 30px 0;
-  padding: 0;
-  font-size: 30px;
-}
-footer .social-links li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  margin-left: 42px;
-  color: #f06000;
+footer .row .social-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-footer .social-links li:first-child {
-  margin-left: 0;
+footer .social-links {
+  padding: 0 0 20px 0;
+}
+
+footer .social-links .icon {
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  color: #30a2ff;
+
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+footer .social-links .icon:hover {
+  width: 80px;
+  height: 80px;
+  margin: 0;
 }
 
 /* Go To Top Button */
@@ -819,29 +701,31 @@ footer .social-links li:first-child {
   position: absolute;
   top: -24px;
   left: 50%;
-  margin-left: -30px;
+  margin-left: -24px;
 }
-#go-top a {
-  text-decoration: none;
-  border: 0 none;
+#go-top .scroll-to-top {
   display: block;
-  width: 60px;
-  height: 60px;
-  background-color: #525252;
-
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-
-  color: #fff;
-  font-size: 21px;
-  line-height: 60px;
+  height: 48px;
+  width: 48px;
+  line-height: 48px;
+  color: #000;
   border-radius: 100%;
+  background-color: #888;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-#go-top a:hover {
-  background-color: #0f9095;
+#go-top .scroll-to-top:hover {
+  color: #888;
+  background-color: #000;
+}
+
+#go-top .scroll-to-top .icon {
+  margin: 2px;
+  height: 44px;
+  width: 44px;
 }
 
 .social .btn:first-child {

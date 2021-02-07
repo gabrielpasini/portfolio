@@ -1,27 +1,32 @@
 {
-  "name": "bot_twitch",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "App criado para portfólio utilizando ReactJS e NextJS",
   "main": "index.js",
   "scripts": {
     "dev": "next dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabrielpasini/bot_twitch.git"
+    "url": "git+https://github.com/gabrielpasini/portfolio.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Gabriel Pasini",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gabrielpasini/bot_twitch/issues"
+    "url": "https://github.com/gabrielpasini/portfolio/issues"
   },
-  "homepage": "https://github.com/gabrielpasini/bot_twitch#readme",
+  "homepage": "https://github.com/gabrielpasini/portfolio#readme",
   "dependencies": {
-    "react-particles-js": "^3.4.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.20.0",
     "next": "^10.0.4",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-particles-js": "^3.4.1"
   }
 }

@@ -1,50 +1,16 @@
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Particles from 'react-particles-js';
-
-const arraySkills = [
-  {
-    name: 'Javascript',
-    level: '95%',
-  },
-  {
-    name: 'ReactJs',
-    level: '90%',
-  },
-  {
-    name: 'React Native',
-    level: '80%',
-  },
-  {
-    name: 'AngularJS',
-    level: '90%',
-  },
-  {
-    name: 'Angular 5+',
-    level: '45%',
-  },
-  {
-    name: 'NodeJS',
-    level: '50%',
-  },
-  {
-    name: 'MongoDB',
-    level: '40%',
-  },
-  {
-    name: 'CSS',
-    level: '75%',
-  },
-  {
-    name: 'C/C++',
-    level: '70%',
-  },
-  {
-    name: 'Python',
-    level: '30%',
-  },
-];
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import {
+  faInstagram,
+  faLinkedinIn,
+  faGithub,
+} from '@fortawesome/free-brands-svg-icons';
+import { arraySkills, bgStyle, bgParams } from '../public/utils';
 
 const Home = () => {
   const router = useRouter();
@@ -70,40 +36,10 @@ const Home = () => {
     <div id="page-container">
       <header id="home">
         <p className="text-logo">Gabriel Pasini</p>
-        <Particles
-          className="particles-bg"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            zIndex: 0,
-            background: 'url(images/blue_galaxy.jpg)',
-          }}
-          params={{
-            color: {
-              value: '#ffffff',
-            },
-            particles: {
-              number: {
-                value: 75,
-              },
-              size: {
-                value: 2,
-              },
-            },
-            interactivity: {
-              events: {
-                onhover: {
-                  enable: true,
-                  mode: 'repulse',
-                },
-              },
-            },
-          }}
-        />
+        <Particles className="particles-bg" style={bgStyle} params={bgParams} />
         <nav id="nav-wrap">
           <ul id="nav" className="nav">
-            <li className={path === 'home' ? 'current' : ''}>
+            <li className={path === 'home' || path === '' ? 'current' : ''}>
               <Link href="#home">
                 <a>Início</a>
               </Link>
@@ -131,7 +67,9 @@ const Home = () => {
           </ul>
         </nav>
         <Link href="#about">
-          <a className="scrolldown">v</a>
+          <a className="scrolldown">
+            <FontAwesomeIcon icon={faAngleDown} className="icon" />
+          </a>
         </Link>
       </header>
       <section id="about">
@@ -218,7 +156,11 @@ const Home = () => {
                           backgroundColor: getRandomColor(),
                         }}
                         className={className}
-                      ></span>
+                      >
+                        {skill.icon && (
+                          <FontAwesomeIcon icon={skill.icon} className="icon" />
+                        )}
+                      </span>
                       <em>{skill.name}</em>
                     </li>
                   );
@@ -232,6 +174,40 @@ const Home = () => {
         <div className="row">
           <div className="columns portfolio-item">
             <div className="item-wrap">
+              <a
+                href="https://github.com/gabrielpasini/portfolio"
+                title="Portfólio"
+                target="_blank"
+              >
+                <img alt="portfolio" src="/images/uti_aux1.png" />
+                <div className="overlay">
+                  <div className="portfolio-item-meta">
+                    <h5>Portfólio</h5>
+                    <p>Portólio criado em React com NextJS</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="columns portfolio-item">
+            <div className="item-wrap">
+              <a
+                href="https://github.com/gabrielpasini/react_ecommerce_frontend"
+                title="Lojinha.com"
+                target="_blank"
+              >
+                <img alt="Lojinha.com" src="/images/lojinha.png" />
+                <div className="overlay">
+                  <div className="portfolio-item-meta">
+                    <h5>Lojinha.com</h5>
+                    <p>Modelo de E-Commerce criado em React</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="columns portfolio-item">
+            <div className="item-wrap">
               <img alt="uti_aux" src="/images/uti_aux1.png" />
               <div className="overlay">
                 <div className="portfolio-item-meta">
@@ -241,36 +217,15 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="columns portfolio-item">
-            <div className="item-wrap">
-              <a href="" title="projeto2" target="_blank">
-                <img alt="projeto2" src="images/portfolio/resume-website.jpg" />
-                <div className="overlay">
-                  <div className="portfolio-item-meta">
-                    <h5>Projeto 2</h5>
-                    <p>Categoria</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
       <section id="contact">
         <div className="row section-head">
-          <div className="two columns header-col">
-            <h1>
-              <span>Entre em contato.</span>
-            </h1>
-          </div>
-
-          <div className="ten columns">
-            <p className="lead">Dúvidas? Sugestões?</p>
-          </div>
+          <FontAwesomeIcon icon={faEnvelope} className="icon" />
+          <p className="lead">Dúvidas? Sugestões? Entre em contato!</p>
         </div>
-
         <div className="row">
-          <div className="eight columns">
+          <div className="email">
             <form action="" method="post" id="contactForm" name="contactForm">
               <fieldset>
                 <div>
@@ -286,13 +241,12 @@ const Home = () => {
                     onChange={() => {}}
                   />
                 </div>
-
                 <div>
                   <label htmlFor="contactEmail">
                     E-mail <span className="required">*</span>
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     defaultValue=""
                     size="35"
                     id="contactEmail"
@@ -300,9 +254,10 @@ const Home = () => {
                     onChange={() => {}}
                   />
                 </div>
-
                 <div>
-                  <label htmlFor="contactSubject">Assunto</label>
+                  <label htmlFor="contactSubject">
+                    Assunto <span className="required">*</span>
+                  </label>
                   <input
                     type="text"
                     defaultValue=""
@@ -312,19 +267,17 @@ const Home = () => {
                     onChange={() => {}}
                   />
                 </div>
-
                 <div>
                   <label htmlFor="contactMessage">
                     Mensagem <span className="required">*</span>
                   </label>
                   <textarea
                     cols="50"
-                    rows="15"
+                    rows="10"
                     id="contactMessage"
                     name="contactMessage"
                   ></textarea>
                 </div>
-
                 <div>
                   <button className="submit">Enviar</button>
                   <span id="image-loader">
@@ -333,7 +286,6 @@ const Home = () => {
                 </div>
               </fieldset>
             </form>
-
             <div id="message-warning">Erro!</div>
             <div id="message-success">
               <i className="fa fa-check"></i> Sua mensagem foi enviada,
@@ -341,54 +293,55 @@ const Home = () => {
               <br />
             </div>
           </div>
-
-          <aside className="four columns footer-widgets">
-            <div className="widget widget_contact">
-              <h4>Contato</h4>
-              <p className="address">
-                Gabriel Pasini
-                <br />
-                Porto Alegre - RS
-                <br />
-                <span>(51)99242-9497</span>
-              </p>
-            </div>
+          <aside className="contatos">
+            <p className="address">
+              E-mail: gabrielpasini@outlook.com.br
+              <br />
+              Local: Porto Alegre - RS
+              <br />
+              Fone: (51)99242-9497
+            </p>
+            <Link href="https://wa.me/qr/FAE64I55QBQOK1">
+              <a title="WhatsApp" target="_blank">
+                <img
+                  className="whats-qrcode"
+                  src="/images/whats_qrcode.jpg"
+                  alt="Whats QR-Code"
+                />
+              </a>
+            </Link>
           </aside>
         </div>
       </section>
       <footer>
         <div className="row">
-          <div className="twelve columns">
-            <ul className="social-links">
-              <li>
-                <a href="https://www.instagram.com/gabrielfsk/" target="_blank">
-                  <i className="fa fa-instagram"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/gabriel-pasini-963006180/"
-                  target="_blank"
-                >
-                  <i className="fa fa-linkedin"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/gabrielpasini" target="_blank">
-                  <i className="fa fa-github"></i>
-                </a>
-              </li>
-            </ul>
-
-            <ul className="copyright">
-              <li>&copy; Copyright 2021 Gabriel Pasini</li>
-            </ul>
+          <div className="social-links">
+            <Link href="https://www.instagram.com/gabrielfsk/">
+              <a target="_blank">
+                <FontAwesomeIcon icon={faInstagram} className="icon" />
+              </a>
+            </Link>
+            <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
+              <a target="_blank">
+                <FontAwesomeIcon icon={faLinkedinIn} className="icon" />
+              </a>
+            </Link>
+            <Link href="https://github.com/gabrielpasini">
+              <a target="_blank">
+                <FontAwesomeIcon icon={faGithub} className="icon" />
+              </a>
+            </Link>
           </div>
-          <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
-              <i className="icon-up-open"></i>
+        </div>
+        <ul className="copyright">
+          <li>&copy; Copyright 2021 Gabriel Pasini</li>
+        </ul>
+        <div id="go-top">
+          <Link href="#home">
+            <a className="scroll-to-top">
+              <FontAwesomeIcon icon={faAngleUp} className="icon" />
             </a>
-          </div>
+          </Link>
         </div>
       </footer>
     </div>
