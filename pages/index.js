@@ -65,6 +65,14 @@ const Home = () => {
   }
 
   async function submitEmail() {
+    const regex = /\S+@\S+\.\S+/;
+    if (!regex.test(email)) {
+      setError(true);
+      setSuccess(false);
+      setMensagemSuccess('');
+      setMensagemError('E-mail inválido!');
+      return;
+    }
     setLoading(true);
     try {
       const emailEnviado = await Axios.post(`email/gabriel`, {
@@ -119,7 +127,7 @@ const Home = () => {
       <div id="page-container">
         <header id="home">
           <p className="text-logo">GABRIEL PASINI</p>
-          <span className="sub-text">Desenvolvedor Frontend</span>
+          <span className="sub-text">Desenvolvedor de Software</span>
           <Particles
             className="particles-bg"
             style={bgStyle}
