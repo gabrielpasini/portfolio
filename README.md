@@ -1,1 +1,1 @@
-Portfólio criado em React utilizando a tecnologia NextJS
+Portfólio desenvolvido em React utilizando a tecnologia NextJS
