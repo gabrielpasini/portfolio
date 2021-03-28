@@ -54,7 +54,7 @@ header .sub-text {
 @media (max-width: 768px) {
   header .text-logo {
     top: 45%;
-    font-size: 40px;
+    font-size: 28px;
   }
   header .sub-text {
     font-size: 14px;
@@ -121,15 +121,18 @@ header .sub-text {
 
 #contact p.lead {
   font-size: 24px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
-#contact .row .email {
+#contact .email {
   margin-left: 5%;
   width: 45%;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: column;
 }
 
-#contact .row .contatos {
+#contact .contatos {
   margin-right: 5%;
   width: 45%;
   display: flex;
@@ -138,14 +141,13 @@ header .sub-text {
   justify-content: flex-start;
 }
 
-#contact .row .contatos .QRContainer {
+#contact .QRContainer {
   padding-top: 2%;
-  padding-left: 20%;
 }
 
-#contact .row .contatos .whats-qrcode {
+#contact .whats-qrcode {
   margin: 5%;
-  width: 70%;
+  width: 40%;
   height: auto;
   cursor: pointer;
   -webkit-transition: all 0.1s ease-in-out;
@@ -154,87 +156,42 @@ header .sub-text {
   transition: all 0.1s ease-in-out;
 }
 
-#contact .row .contatos .whats-qrcode:hover {
+#contact .whats-qrcode:hover {
   margin: 0;
-  width: 80%;
+  width: 50%;
 }
 
-@media (max-width: 768px) {
-  #contact .row {
-    flex-direction: column;
-  }
-  #contact .row .email {
-    margin: 0 5%;
-    width: 90%;
-  }
-  #contact .row .contatos {
-    padding-top: 10px;
-    margin: 0 5%;
-    width: 90%;
-    flex-direction: row;
-  }
-  #contact .row .contatos .address {
-    width: 80%;
-  }
-  #contact .row .contatos .QRContainer {
-    padding: 0;
-    width: 20%;
-  }
-}
-
-#contact a,
-#contact a:visited {
-  color: #30a2ff;
-}
-
-#contact a:hover,
-#contact a:focus {
-  color: #fff;
-}
-
-#contact .row .contatos p {
+#contact .contatos p {
   font-size: 18px;
   letter-spacing: 1px;
   margin: 0;
   color: #ccc;
 }
 
-#contact form {
-  margin-bottom: 10px;
-}
-
-#contact label {
-  font: 15px/24px 'opensans-bold', sans-serif;
-  margin: 12px 0;
-  color: #fff;
-  display: inline-block;
-  float: left;
-  width: 30%;
-}
-
-#contact textarea {
-  resize: none;
-}
-
-#contact input,
-#contact textarea,
-#contact select {
-  padding: 10px 10px;
-  color: #fff;
-  background: #000;
-  margin: 0 0 16px;
-  border: 0;
-  outline: none;
-  font-size: 16px;
-  line-height: 24px;
-  width: 60%;
-}
-
-#contact input:focus,
-#contact textarea:focus,
-#contact select:focus {
-  color: #fff;
-  background-color: #30a2ff;
+@media (max-width: 768px) {
+  #contact .row {
+    flex-direction: column;
+  }
+  #contact .email {
+    margin: 0 5%;
+    width: 90%;
+  }
+  #contact p.lead {
+    font-size: 18px;
+  }
+  #contact .contatos {
+    padding-top: 10px;
+    margin: 0 5%;
+    width: 90%;
+    flex-direction: row;
+  }
+  #contact .contatos p {
+    font-size: 14px;
+  }
+  #contact .QRContainer {
+    padding: 0;
+    width: 20%;
+  }
 }
 
 #contact button.enviarEmail {
@@ -268,11 +225,6 @@ header .sub-text {
   opacity: 0.5;
   color: #555;
   background: #ccc;
-}
-
-#contact span.required {
-  color: #30a2ff;
-  font-size: 13px;
 }
 
 .customFooter {

@@ -6,18 +6,24 @@ import {
   Backdrop,
   CircularProgress,
   Snackbar,
+  Button,
+  TextField,
+  withStyles,
   makeStyles,
 } from '@material-ui/core';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import MuiAlert from '@material-ui/lab/Alert';
 import Axios from '../axios';
 import { bgStyle, bgParams } from '../public/utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
   faInstagram,
   faLinkedinIn,
   faGithub,
+  faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +32,51 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
   },
 }));
+
+const InputText = withStyles({
+  root: {
+    marginBottom: 20,
+    '& .MuiOutlinedInput-inputMarginDense': {
+      color: '#fff',
+    },
+    '& label': {
+      color: '#fff',
+    },
+    '& label.Mui-focused': {
+      color: '#30a2ff',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#30a2ff',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#fff',
+      },
+      '&:hover fieldset': {
+        borderWidth: 3,
+        borderColor: '#fff',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#30a2ff',
+      },
+    },
+  },
+})(TextField);
+
+const SendButton = withStyles(() => ({
+  root: {
+    fontWeight: 'bold',
+    color: '#333',
+    backgroundColor: '#fff',
+    '&:hover': {
+      color: '#333',
+      backgroundColor: '#30a2ff',
+    },
+    '&:disabled': {
+      backgroundColor: '#888',
+    },
+  },
+}))(Button);
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -55,7 +106,7 @@ const Home = () => {
 
   useEffect(() => {
     setPageWidth(window.innerWidth);
-  }, []);
+  });
 
   function limpaCampos() {
     setNome('');
@@ -135,76 +186,56 @@ const Home = () => {
           />
           <Link href="#contact">
             <a className="scrolldown">
-              <FontAwesomeIcon icon={faAngleDown} className="icon" />
+              <ExpandMoreIcon className="icon" />
             </a>
           </Link>
         </header>
         <section id="contact">
           <div className="section-head">
-            <FontAwesomeIcon icon={faEnvelope} className="icon" />
+            <MailOutlineIcon className="icon" />
             <p className="lead">Dúvidas? Sugestões? Entre em contato!</p>
           </div>
           <div className="row">
-            <div className="email" id="contactForm" name="contactForm">
-              <div>
-                <label htmlFor="contactName">
-                  Nome <span className="required">*</span>
-                </label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactName"
-                  name="contactName"
-                  onChange={(event) => setNome(event.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="contactEmail">
-                  E-mail <span className="required">*</span>
-                </label>
-                <input
-                  type="email"
-                  defaultValue=""
-                  size="35"
-                  id="contactEmail"
-                  name="contactEmail"
-                  onChange={(event) => setEmail(event.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="contactSubject">
-                  Assunto <span className="required">*</span>
-                </label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactSubject"
-                  name="contactSubject"
-                  onChange={(event) => setAssunto(event.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="contactMessage">
-                  Mensagem <span className="required">*</span>
-                </label>
-                <textarea
-                  cols="50"
-                  rows={pageWidth > 768 ? '7' : '2'}
-                  id="contactMessage"
-                  name="contactMessage"
-                  onChange={(event) => setMensagem(event.target.value)}
-                ></textarea>
-              </div>
-              <button
-                className="enviarEmail"
+            <form className="email" noValidate autoComplete="off">
+              <InputText
+                label="Nome"
+                variant="outlined"
+                size="small"
+                value={nome}
+                onChange={(event) => setNome(event.target.value)}
+              />
+              <InputText
+                label="E-mail"
+                variant="outlined"
+                size="small"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <InputText
+                label="Assunto"
+                variant="outlined"
+                size="small"
+                value={assunto}
+                onChange={(event) => setAssunto(event.target.value)}
+              />
+              <InputText
+                label="Mensagem"
+                variant="outlined"
+                size="small"
+                multiline
+                rows={pageWidth > 768 ? 4 : 1}
+                value={mensagem}
+                onChange={(event) => setMensagem(event.target.value)}
+              />
+              <SendButton
+                variant="contained"
                 disabled={!nome || !email || !assunto || !mensagem}
                 onClick={() => submitEmail()}
+                endIcon={<SendIcon />}
               >
                 Enviar
-              </button>
-            </div>
+              </SendButton>
+            </form>
             <div className="contatos">
               <p className="address">
                 E-mail: gabrielpasini@outlook.com.br
@@ -213,27 +244,36 @@ const Home = () => {
                 <br />
                 Fone: (51)99242-9497
               </p>
-              <div className="QRContainer">
-                <Link href="https://wa.me/qr/FAE64I55QBQOK1">
-                  <a title="WhatsApp" target="_blank">
-                    <img
-                      className="whats-qrcode"
-                      src="/images/whats_qrcode.jpg"
-                      alt="Whats QR-Code"
-                    />
-                  </a>
-                </Link>
-              </div>
+              {pageWidth > 768 ? (
+                <div className="QRContainer">
+                  <Link href="https://wa.me/qr/FAE64I55QBQOK1">
+                    <a title="WhatsApp" target="_blank">
+                      <img
+                        className="whats-qrcode"
+                        src="/images/whats_qrcode.jpg"
+                        alt="Whats QR-Code"
+                      />
+                    </a>
+                  </Link>
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="row">
             <div className="customFooter">
               <Link href="#home">
                 <a className="scroll-to-top">
-                  <FontAwesomeIcon icon={faAngleUp} className="icon" />
+                  <ExpandLessIcon className="icon" />
                 </a>
               </Link>
               <div className="social-links">
+                {pageWidth < 768 ? (
+                  <Link href="https://wa.me/qr/FAE64I55QBQOK1">
+                    <a target="_blank">
+                      <FontAwesomeIcon icon={faWhatsapp} className="icon" />
+                    </a>
+                  </Link>
+                ) : null}
                 <Link href="https://www.instagram.com/gabrielfsk/">
                   <a target="_blank">
                     <FontAwesomeIcon icon={faInstagram} className="icon" />
