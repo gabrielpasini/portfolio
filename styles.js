@@ -284,7 +284,7 @@ export const ContactInfo = styled.div`
 
 export const WhatsContainer = styled.a`
   width: 200px;
-  height: auto;
+  height: 200px;
   margin-top: 20px;
   cursor: pointer;
   -webkit-transition: all 0.2s ease-in-out;
@@ -294,6 +294,7 @@ export const WhatsContainer = styled.a`
   :hover {
     box-shadow: 0px 0px 20px #222;
     width: 260px;
+    height: 260px;
   }
 `;
 
