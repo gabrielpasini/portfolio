@@ -282,7 +282,7 @@ export const ContactInfo = styled.div`
   }
 `;
 
-export const WhatsContainer = styled.a`
+export const WhatsContainer = styled.div`
   width: 200px;
   height: 200px;
   margin-top: 20px;

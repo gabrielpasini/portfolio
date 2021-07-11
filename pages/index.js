@@ -216,16 +216,18 @@ const Home = () => {
                   <p>Fone: (51)99242-9497</p>
                 </div>
               </Fade>
-              <Link href="https://wa.me/qr/FAE64I55QBQOK1">
-                <WhatsContainer title="WhatsApp" target="_blank">
-                  <Roll right ssrReveal duration={1000}>
-                    <WhatsQrCode
-                      src="/images/whats_qrcode.jpg"
-                      alt="Whats QR-Code"
-                    />
-                  </Roll>
-                </WhatsContainer>
-              </Link>
+              <WhatsContainer>
+                <Link href="https://wa.me/qr/FAE64I55QBQOK1">
+                  <a title="WhatsApp" target="_blank">
+                    <Roll right ssrReveal duration={1000}>
+                      <WhatsQrCode
+                        src="/images/whats_qrcode.jpg"
+                        alt="Whats QR-Code"
+                      />
+                    </Roll>
+                  </a>
+                </Link>
+              </WhatsContainer>
             </ContactInfo>
           </ContactRow>
           <Footer>
