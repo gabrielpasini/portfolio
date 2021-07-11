@@ -1,7 +1,14 @@
-import '../public/styles.css';
+import { useEffect } from 'react';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
     <>
       <Head>

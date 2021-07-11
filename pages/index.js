@@ -1,302 +1,311 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Particles from 'react-particles-js';
-import {
-  Backdrop,
-  CircularProgress,
-  Snackbar,
-  Button,
-  TextField,
-  withStyles,
-  makeStyles,
-} from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import MuiAlert from '@material-ui/lab/Alert';
 import Axios from '../axios';
 import { bgStyle, bgParams } from '../public/utils';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Particles from 'react-particles-js';
+import { Fade, Roll, Flip, LightSpeed } from 'react-reveal';
+import SendIcon from '@material-ui/icons/Send';
+import MuiAlert from '@material-ui/lab/Alert';
+import { Snackbar, Backdrop, CircularProgress } from '@material-ui/core';
 import {
   faInstagram,
   faLinkedinIn,
   faGithub,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
+import {
+  PageContainer,
+  HomeContent,
+  TitleLogo,
+  Subtitle,
+  InputText,
+  InputTextArea,
+  SendButton,
+  ButtonHomeContainer,
+  ScrollDown,
+  BottomIcon,
+  ContactContent,
+  ContactHead,
+  ContactIcon,
+  ContactRow,
+  ContactForm,
+  ContactInfo,
+  WhatsContainer,
+  WhatsQrCode,
+  ButtonFooterContainer,
+  ScrollTop,
+  TopIcon,
+  Footer,
+  SocialsContainer,
+  SocialIcons,
+  Copyright,
+} from '../styles';
 
-const useStyles = makeStyles((theme) => ({
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
-    color: '#fff',
-  },
-}));
-
-const InputText = withStyles({
-  root: {
-    marginBottom: 20,
-    '& .MuiOutlinedInput-inputMarginDense': {
-      color: '#fff',
-    },
-    '& label': {
-      color: '#fff',
-    },
-    '& label.Mui-focused': {
-      color: '#30a2ff',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#30a2ff',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#fff',
-      },
-      '&:hover fieldset': {
-        borderWidth: 3,
-        borderColor: '#fff',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#30a2ff',
-      },
-    },
-  },
-})(TextField);
-
-const SendButton = withStyles(() => ({
-  root: {
-    fontWeight: 'bold',
-    color: '#333',
-    backgroundColor: '#fff',
-    '&:hover': {
-      color: '#333',
-      backgroundColor: '#30a2ff',
-    },
-    '&:disabled': {
-      backgroundColor: '#888',
-    },
-  },
-}))(Button);
-
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
 
 const Home = () => {
-  const classes = useStyles();
-  const router = useRouter();
-  const [path, setPath] = useState('');
-  const [nome, setNome] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [assunto, setAssunto] = useState('');
-  const [mensagem, setMensagem] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
-  const [mensagemSuccess, setMensagemSuccess] = useState('');
-  const [mensagemError, setMensagemError] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [pageWidth, setPageWidth] = useState(0);
+  const [randomColor, setRandomColor] = useState('#fff');
+  const fadeProps = {
+    ssrReveal: true,
+    cascade: true,
+    duration: 1000,
+  };
 
-  useEffect(() => {
-    const newPath = router.asPath.substr(2);
-    if (newPath !== path) {
-      setPath(newPath);
+  const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
     }
-  }, [router.asPath]);
+    setRandomColor(color);
+  };
 
-  useEffect(() => {
-    setPageWidth(window.innerWidth);
-  });
-
-  function limpaCampos() {
-    setNome('');
+  const cleanForm = () => {
+    setName('');
     setEmail('');
-    setAssunto('');
-    setMensagem('');
-  }
+    setSubject('');
+    setMessage('');
+  };
 
-  async function submitEmail() {
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  };
+
+  const submitEmail = async (event) => {
+    event.preventDefault();
     const regex = /\S+@\S+\.\S+/;
     if (!regex.test(email)) {
-      setError(true);
-      setSuccess(false);
-      setMensagemSuccess('');
-      setMensagemError('E-mail inválido!');
+      setShowError(true);
+      setShowSuccess(false);
+      setSuccessMessage('');
+      setErrorMessage('E-mail inválido!');
       return;
     }
     setLoading(true);
     try {
-      const emailEnviado = await Axios.post(`email/gabriel`, {
-        nome,
+      const sendedEmail = await Axios.post(`email/gabriel`, {
+        name,
         email,
-        assunto,
-        mensagem,
+        subject,
+        message,
       });
-      if (emailEnviado.data.status === 'success') {
-        setSuccess(true);
-        setError(false);
-        setMensagemSuccess(emailEnviado.data.message);
-        setMensagemError('');
-        limpaCampos();
+      if (sendedEmail.data.status === 'success') {
+        setShowSuccess(true);
+        setShowError(false);
+        setSuccessMessage(sendedEmail.data.message);
+        setErrorMessage('');
+        cleanForm();
       }
     } catch (err) {
-      setError(true);
-      setSuccess(false);
-      setMensagemSuccess('');
-      setMensagemError(err.data.message);
+      setShowError(true);
+      setShowSuccess(false);
+      setSuccessMessage('');
+      setErrorMessage(err.data.message);
     }
     setLoading(false);
-  }
+  };
+
+  useEffect(() => {
+    setPageWidth(window.innerWidth);
+    /**  desativada pois quebra a performance da tela! */
+    //setInterval(getRandomColor, 2000);
+    //clearInterval();
+    getRandomColor();
+  }, []);
 
   return (
     <>
+      <PageContainer>
+        <HomeContent id="home">
+          <TitleLogo title="GABRIEL PASINI" randomcolor={randomColor}>
+            GABRIEL PASINI
+          </TitleLogo>
+          <Subtitle className="sub-text">Desenvolvedor de Software</Subtitle>
+          <Particles style={bgStyle} params={bgParams} />
+          <ButtonHomeContainer>
+            <Fade ssrReveal bottom delay={500} duration={1000}>
+              <ScrollDown onClick={() => scrollTo('contact')}>
+                <BottomIcon />
+              </ScrollDown>
+            </Fade>
+          </ButtonHomeContainer>
+        </HomeContent>
+        <ContactContent id="contact">
+          <Fade {...fadeProps} top>
+            <ContactHead>
+              <ContactIcon />
+              <p>Dúvidas? Sugestões? Entre em contato!</p>
+            </ContactHead>
+          </Fade>
+          <ContactRow>
+            <ContactForm noValidate autoComplete="off">
+              <Fade {...fadeProps} left>
+                <div>
+                  <label htmlFor="nome">Nome:</label>
+                </div>
+                <InputText
+                  id="nome"
+                  type="text"
+                  placeholder="digite o seu nome"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                />
+                <div>
+                  <label htmlFor="email">E-mail:</label>
+                </div>
+                <InputText
+                  id="email"
+                  type="email"
+                  placeholder="digite o seu e-mail"
+                  error={showError}
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                    setShowError(false);
+                  }}
+                />
+                <div>
+                  <label htmlFor="assunto">Assunto:</label>
+                </div>
+                <InputText
+                  id="assunto"
+                  type="text"
+                  placeholder="digite o assunto"
+                  value={subject}
+                  onChange={(event) => setSubject(event.target.value)}
+                />
+                <div>
+                  <label htmlFor="mensagem">Mensagem:</label>
+                </div>
+                <InputTextArea
+                  id="mensagem"
+                  type="textarea"
+                  placeholder="digite a mensagem"
+                  rows={pageWidth > 768 ? 4 : 1}
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
+                />
+                <SendButton
+                  disabled={!name || !email || !subject || !message}
+                  onClick={submitEmail}
+                >
+                  <span>enviar</span>
+                  <SendIcon />
+                </SendButton>
+              </Fade>
+            </ContactForm>
+            <ContactInfo>
+              <Fade {...fadeProps} right>
+                <div>
+                  <p>E-mail: gabrielpasini@outlook.com.br</p>
+                </div>
+                <div>
+                  <p>Local: Porto Alegre - RS</p>
+                </div>
+                <div>
+                  <p>Fone: (51)99242-9497</p>
+                </div>
+              </Fade>
+              <Link href="https://wa.me/qr/FAE64I55QBQOK1">
+                <WhatsContainer title="WhatsApp" target="_blank">
+                  <Roll {...fadeProps} right>
+                    <WhatsQrCode
+                      src="/images/whats_qrcode.jpg"
+                      alt="Whats QR-Code"
+                    />
+                  </Roll>
+                </WhatsContainer>
+              </Link>
+            </ContactInfo>
+          </ContactRow>
+          <Footer>
+            <ButtonFooterContainer>
+              <Fade ssrReveal right delay={2000} duration={1000}>
+                <ScrollTop onClick={() => scrollTo('home')}>
+                  <TopIcon />
+                </ScrollTop>
+              </Fade>
+            </ButtonFooterContainer>
+            <SocialsContainer>
+              {pageWidth < 768 ? (
+                <Link href="https://wa.me/qr/FAE64I55QBQOK1">
+                  <a target="_blank">
+                    <Flip ssrReveal bottom delay={500} duration={1000}>
+                      <SocialIcons icon={faWhatsapp} />
+                    </Flip>
+                  </a>
+                </Link>
+              ) : (
+                <></>
+              )}
+              <Link href="https://www.instagram.com/gabrielfsk/">
+                <a target="_blank">
+                  <Flip ssrReveal bottom delay={550} duration={1000}>
+                    <SocialIcons icon={faInstagram} />
+                  </Flip>
+                </a>
+              </Link>
+              <Link href="https://github.com/gabrielpasini">
+                <a target="_blank">
+                  <Flip ssrReveal bottom delay={600} duration={1000}>
+                    <SocialIcons icon={faGithub} />
+                  </Flip>
+                </a>
+              </Link>
+              <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
+                <a target="_blank">
+                  <Flip ssrReveal bottom delay={650} duration={1000}>
+                    <SocialIcons icon={faLinkedinIn} />
+                  </Flip>
+                </a>
+              </Link>
+            </SocialsContainer>
+            <LightSpeed ssrReveal left delay={1000} duration={800}>
+              <Copyright>&copy; Copyright 2021 Gabriel Pasini</Copyright>
+            </LightSpeed>
+          </Footer>
+        </ContactContent>
+      </PageContainer>
       {loading && (
-        <Backdrop className={classes.backdrop} open={loading}>
+        <Backdrop style={{ zIndex: 1000, color: '#fff' }} open={loading}>
           <CircularProgress color="inherit" />
         </Backdrop>
       )}
       <Snackbar
-        open={success}
+        open={showSuccess}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         autoHideDuration={10000}
-        onClose={() => setSuccess(false)}
+        onClose={() => setShowSuccess(false)}
       >
-        <Alert onClose={() => setSuccess(false)} severity="success">
-          {mensagemSuccess}
+        <Alert onClose={() => setShowSuccess(false)} severity="success">
+          {successMessage}
         </Alert>
       </Snackbar>
       <Snackbar
-        open={error}
+        open={showError}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         autoHideDuration={10000}
-        onClose={() => setError(false)}
+        onClose={() => setShowError(false)}
       >
-        <Alert onClose={() => setError(false)} severity="error">
-          {mensagemError}
+        <Alert onClose={() => setShowError(false)} severity="error">
+          {errorMessage}
         </Alert>
       </Snackbar>
-      <div id="page-container">
-        <header id="home">
-          <p className="text-logo">GABRIEL PASINI</p>
-          <span className="sub-text">Desenvolvedor de Software</span>
-          <Particles
-            className="particles-bg"
-            style={bgStyle}
-            params={bgParams}
-          />
-          <Link href="#contact">
-            <a className="scrolldown">
-              <ExpandMoreIcon className="icon" />
-            </a>
-          </Link>
-        </header>
-        <section id="contact">
-          <div className="section-head">
-            <MailOutlineIcon className="icon" />
-            <p className="lead">Dúvidas? Sugestões? Entre em contato!</p>
-          </div>
-          <div className="row">
-            <form className="email" noValidate autoComplete="off">
-              <InputText
-                label="Nome"
-                variant="outlined"
-                size="small"
-                value={nome}
-                onChange={(event) => setNome(event.target.value)}
-              />
-              <InputText
-                label="E-mail"
-                variant="outlined"
-                size="small"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-              <InputText
-                label="Assunto"
-                variant="outlined"
-                size="small"
-                value={assunto}
-                onChange={(event) => setAssunto(event.target.value)}
-              />
-              <InputText
-                label="Mensagem"
-                variant="outlined"
-                size="small"
-                multiline
-                rows={pageWidth > 768 ? 4 : 1}
-                value={mensagem}
-                onChange={(event) => setMensagem(event.target.value)}
-              />
-              <SendButton
-                variant="contained"
-                disabled={!nome || !email || !assunto || !mensagem}
-                onClick={() => submitEmail()}
-                endIcon={<SendIcon />}
-              >
-                Enviar
-              </SendButton>
-            </form>
-            <div className="contatos">
-              <p className="address">
-                E-mail: gabrielpasini@outlook.com.br
-                <br />
-                Local: Porto Alegre - RS
-                <br />
-                Fone: (51)99242-9497
-              </p>
-              {pageWidth > 768 ? (
-                <div className="QRContainer">
-                  <Link href="https://wa.me/qr/FAE64I55QBQOK1">
-                    <a title="WhatsApp" target="_blank">
-                      <img
-                        className="whats-qrcode"
-                        src="/images/whats_qrcode.jpg"
-                        alt="Whats QR-Code"
-                      />
-                    </a>
-                  </Link>
-                </div>
-              ) : null}
-            </div>
-          </div>
-          <div className="row">
-            <div className="customFooter">
-              <Link href="#home">
-                <a className="scroll-to-top">
-                  <ExpandLessIcon className="icon" />
-                </a>
-              </Link>
-              <div className="social-links">
-                {pageWidth < 768 ? (
-                  <Link href="https://wa.me/qr/FAE64I55QBQOK1">
-                    <a target="_blank">
-                      <FontAwesomeIcon icon={faWhatsapp} className="icon" />
-                    </a>
-                  </Link>
-                ) : null}
-                <Link href="https://www.instagram.com/gabrielfsk/">
-                  <a target="_blank">
-                    <FontAwesomeIcon icon={faInstagram} className="icon" />
-                  </a>
-                </Link>
-                <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
-                  <a target="_blank">
-                    <FontAwesomeIcon icon={faLinkedinIn} className="icon" />
-                  </a>
-                </Link>
-                <Link href="https://github.com/gabrielpasini">
-                  <a target="_blank">
-                    <FontAwesomeIcon icon={faGithub} className="icon" />
-                  </a>
-                </Link>
-              </div>
-              <ul className="copyright">
-                <li>&copy; Copyright 2021 Gabriel Pasini</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
     </>
   );
 };
