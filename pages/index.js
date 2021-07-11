@@ -55,11 +55,6 @@ const Home = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [pageWidth, setPageWidth] = useState(0);
   const [randomColor, setRandomColor] = useState('#fff');
-  const fadeProps = {
-    ssrReveal: true,
-    cascade: true,
-    duration: 1000,
-  };
 
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -138,7 +133,7 @@ const Home = () => {
           <Subtitle className="sub-text">Desenvolvedor de Software</Subtitle>
           <Particles style={bgStyle} params={bgParams} />
           <ButtonHomeContainer>
-            <Fade ssrReveal bottom delay={500} duration={1000}>
+            <Fade bottom ssrReveal delay={500} duration={1000}>
               <ScrollDown onClick={() => scrollTo('contact')}>
                 <BottomIcon />
               </ScrollDown>
@@ -146,7 +141,7 @@ const Home = () => {
           </ButtonHomeContainer>
         </HomeContent>
         <ContactContent id="contact">
-          <Fade {...fadeProps} top>
+          <Fade top ssrReveal duration={1000}>
             <ContactHead>
               <ContactIcon />
               <p>Dúvidas? Sugestões? Entre em contato!</p>
@@ -154,7 +149,7 @@ const Home = () => {
           </Fade>
           <ContactRow>
             <ContactForm noValidate autoComplete="off">
-              <Fade {...fadeProps} left>
+              <Fade left ssrReveal cascade duration={500}>
                 <div>
                   <label htmlFor="nome">Nome:</label>
                 </div>
@@ -210,7 +205,7 @@ const Home = () => {
               </Fade>
             </ContactForm>
             <ContactInfo>
-              <Fade {...fadeProps} right>
+              <Fade right ssrReveal cascade duration={800}>
                 <div>
                   <p>E-mail: gabrielpasini@outlook.com.br</p>
                 </div>
@@ -223,7 +218,7 @@ const Home = () => {
               </Fade>
               <Link href="https://wa.me/qr/FAE64I55QBQOK1">
                 <WhatsContainer title="WhatsApp" target="_blank">
-                  <Roll {...fadeProps} right>
+                  <Roll right ssrReveal duration={1000}>
                     <WhatsQrCode
                       src="/images/whats_qrcode.jpg"
                       alt="Whats QR-Code"
@@ -235,7 +230,7 @@ const Home = () => {
           </ContactRow>
           <Footer>
             <ButtonFooterContainer>
-              <Fade ssrReveal right delay={2000} duration={1000}>
+              <Fade right ssrReveal delay={2000} duration={1000}>
                 <ScrollTop onClick={() => scrollTo('home')}>
                   <TopIcon />
                 </ScrollTop>
@@ -245,7 +240,7 @@ const Home = () => {
               {pageWidth < 768 ? (
                 <Link href="https://wa.me/qr/FAE64I55QBQOK1">
                   <a target="_blank">
-                    <Flip ssrReveal bottom delay={500} duration={1000}>
+                    <Flip bottom ssrReveal delay={500} duration={1000}>
                       <SocialIcons icon={faWhatsapp} />
                     </Flip>
                   </a>
@@ -255,27 +250,27 @@ const Home = () => {
               )}
               <Link href="https://www.instagram.com/gabrielfsk/">
                 <a target="_blank">
-                  <Flip ssrReveal bottom delay={550} duration={1000}>
+                  <Flip bottom ssrReveal delay={550} duration={1000}>
                     <SocialIcons icon={faInstagram} />
                   </Flip>
                 </a>
               </Link>
               <Link href="https://github.com/gabrielpasini">
                 <a target="_blank">
-                  <Flip ssrReveal bottom delay={600} duration={1000}>
+                  <Flip bottom ssrReveal delay={600} duration={1000}>
                     <SocialIcons icon={faGithub} />
                   </Flip>
                 </a>
               </Link>
               <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
                 <a target="_blank">
-                  <Flip ssrReveal bottom delay={650} duration={1000}>
+                  <Flip bottom ssrReveal delay={650} duration={1000}>
                     <SocialIcons icon={faLinkedinIn} />
                   </Flip>
                 </a>
               </Link>
             </SocialsContainer>
-            <LightSpeed ssrReveal left delay={1000} duration={800}>
+            <LightSpeed left ssrReveal delay={1000} duration={800}>
               <Copyright>&copy; Copyright 2021 Gabriel Pasini</Copyright>
             </LightSpeed>
           </Footer>
