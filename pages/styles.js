@@ -95,7 +95,7 @@ export const InputText = styled.input`
   width: 100%;
   margin: 10px 0;
   border: none;
-  border-radius: 0px;
+  border-radius: 6px;
   padding: 6px;
   color: #fff;
   background-color: #333;
@@ -120,7 +120,7 @@ export const InputTextArea = styled.textarea`
   margin: 10px 0;
   resize: none;
   border: none;
-  border-radius: 0px;
+  border-radius: 6px;
   padding: 6px;
   color: #fff;
   background-color: #333;
@@ -150,6 +150,7 @@ export const SendButton = styled.button`
   width: 40%;
   height: 32px;
   border: none;
+  border-radius: 6px;
   color: #fff;
   background-color: #30a2ff;
   box-shadow: 0px 4px 10px #222;

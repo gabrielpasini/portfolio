@@ -39,7 +39,7 @@ import {
   SocialsContainer,
   SocialIcons,
   Copyright,
-} from '../styles';
+} from './styles';
 
 const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
 
@@ -117,9 +117,6 @@ const Home = () => {
 
   useEffect(() => {
     setPageWidth(window.innerWidth);
-    /**  desativada pois quebra a performance da tela! */
-    //setInterval(getRandomColor, 2000);
-    //clearInterval();
     getRandomColor();
   }, []);
 
@@ -130,7 +127,7 @@ const Home = () => {
           <TitleLogo title="GABRIEL PASINI" randomcolor={randomColor}>
             GABRIEL PASINI
           </TitleLogo>
-          <Subtitle className="sub-text">Desenvolvedor de Software</Subtitle>
+          <Subtitle>Desenvolvedor de Software</Subtitle>
           <Particles style={bgStyle} params={bgParams} />
           <ButtonHomeContainer>
             <Fade bottom ssrReveal delay={500} duration={1000}>
