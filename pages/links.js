@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Particles from 'react-particles-js';
-import { LinkStyle, buttonProps, bgStyle, bgParams } from '../../public/utils';
+import { LinkStyle, buttonProps, bgStyle, bgParams } from '../public/utils';
 import { Fade, Flip } from 'react-reveal';
 import { Tooltip } from '@material-ui/core';
-import { PageContainer } from '../styles';
+import { PageContainer } from '../styles/Home';
 import {
   Content,
   TitleLogo,
@@ -12,7 +12,7 @@ import {
   GoToContainer,
   GoTo,
   RightIcon,
-} from './styles';
+} from '../styles/Links';
 
 const Links = () => {
   const getRandomColor = () => {
@@ -31,8 +31,8 @@ const Links = () => {
           GABRIEL PASINI
         </TitleLogo>
         {buttonProps.length > 0 &&
-          buttonProps.map((button) => (
-            <Link href={button.url}>
+          buttonProps.map((button, index) => (
+            <Link href={button.url} key={index}>
               <a target="_blank" style={LinkStyle}>
                 <Button>
                   <Flip bottom ssrReveal cascade duration={1000}>
@@ -61,4 +61,5 @@ const Links = () => {
     </PageContainer>
   );
 };
+
 export default Links;

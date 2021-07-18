@@ -39,7 +39,7 @@ import {
   SocialsContainer,
   SocialIcons,
   Copyright,
-} from './styles';
+} from '../styles/Home';
 
 const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
 
@@ -303,4 +303,5 @@ const Home = () => {
     </>
   );
 };
+
 export default Home;
