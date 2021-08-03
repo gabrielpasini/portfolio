@@ -94,7 +94,7 @@ export const SocialIcon = styled(FontAwesomeIcon)`
 
 export const GoToContainer = styled.div`
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
   z-index: 3;
 `;

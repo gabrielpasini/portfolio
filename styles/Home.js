@@ -97,8 +97,8 @@ export const InputText = styled.input`
   border: none;
   border-radius: 6px;
   padding: 6px;
-  color: #fff;
-  background-color: #333;
+  color: #333;
+  background-color: #fff;
   box-shadow: 0px 4px 10px #222;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -106,8 +106,8 @@ export const InputText = styled.input`
   transition: all 0.3s ease-in-out;
   :focus {
     outline: none;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #333;
   }
   ::placeholder {
     color: #888;
@@ -122,8 +122,8 @@ export const InputTextArea = styled.textarea`
   border: none;
   border-radius: 6px;
   padding: 6px;
-  color: #fff;
-  background-color: #333;
+  color: #333;
+  background-color: #fff;
   box-shadow: 0px 4px 10px #222;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -131,8 +131,8 @@ export const InputTextArea = styled.textarea`
   transition: all 0.3s ease-in-out;
   :focus {
     outline: none;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #333;
   }
   ::placeholder {
     color: #888;
@@ -221,7 +221,7 @@ export const ContactContent = styled.div`
   align-content: center;
   justify-content: space-between;
   background: radial-gradient(circle at top, #30a2ff 10%, #000 80%);
-  color: #ccc;
+  color: #fff;
 `;
 
 export const ContactHead = styled.div`
@@ -279,7 +279,7 @@ export const ContactInfo = styled.div`
     font-size: 18px;
     letter-spacing: 1px;
     margin: 0;
-    color: #ccc;
+    color: #fff;
   }
 `;
 
