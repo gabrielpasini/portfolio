@@ -94,10 +94,10 @@ const Home = () => {
     setLoading(true);
     try {
       const sendedEmail = await Axios.post(`email/gabriel`, {
-        name,
-        email,
-        subject,
-        message,
+        nome: name,
+        email: email,
+        assunto: subject,
+        mensagem: message,
       });
       if (sendedEmail.data.status === 'success') {
         setShowSuccess(true);
