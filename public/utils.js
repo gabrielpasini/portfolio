@@ -59,7 +59,9 @@ export const bgStyle = {
   left: 0,
   zIndex: 0,
   //background: 'url(images/blue_galaxy.jpg)',
-  background: `radial-gradient(circle at bottom, #30a2ff 10%, #000 80%)`,
+  //background: `radial-gradient(circle at bottom, #ccc 10%, #000 70%)`,
+  background: `linear-gradient(to bottom, #000,#000,#ccc)`,
+  //background: '#222',
 };
 
 export const bgParams = {
@@ -68,10 +70,10 @@ export const bgParams = {
   },
   particles: {
     number: {
-      value: 75,
+      value: 30,
     },
     size: {
-      value: 2,
+      value: 4,
     },
   },
   interactivity: {

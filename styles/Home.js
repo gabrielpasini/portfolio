@@ -81,7 +81,7 @@ export const TitleLogo = styled.div`
 export const Subtitle = styled.span`
   z-index: 1;
   font-size: 32px;
-  color: #fff;
+  color: #30a2ff;
   text-shadow: 0px 0px 20px #222;
   @media (max-width: 1200px) {
     font-size: 24px;
@@ -95,11 +95,9 @@ export const InputText = styled.input`
   width: 100%;
   margin: 10px 0;
   border: none;
-  border-radius: 6px;
   padding: 6px;
   color: #fff;
   background-color: #333;
-  box-shadow: 0px 4px 10px #222;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -108,6 +106,7 @@ export const InputText = styled.input`
     outline: none;
     color: #000;
     background-color: #fff;
+    box-shadow: 0px 4px 10px #222;
   }
   ::placeholder {
     color: #888;
@@ -120,11 +119,9 @@ export const InputTextArea = styled.textarea`
   margin: 10px 0;
   resize: none;
   border: none;
-  border-radius: 6px;
   padding: 6px;
   color: #fff;
   background-color: #333;
-  box-shadow: 0px 4px 10px #222;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -133,6 +130,7 @@ export const InputTextArea = styled.textarea`
     outline: none;
     color: #000;
     background-color: #fff;
+    box-shadow: 0px 4px 10px #222;
   }
   ::placeholder {
     color: #888;
@@ -203,7 +201,7 @@ export const ScrollDown = styled.div`
   }
   :hover {
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #30a2ff;
   }
 `;
 
@@ -220,8 +218,8 @@ export const ContactContent = styled.div`
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
-  background: radial-gradient(circle at top, #30a2ff 10%, #000 80%);
-  color: #ccc;
+  background: #ccc;
+  color: #333;
 `;
 
 export const ContactHead = styled.div`
@@ -279,7 +277,6 @@ export const ContactInfo = styled.div`
     font-size: 18px;
     letter-spacing: 1px;
     margin: 0;
-    color: #ccc;
   }
 `;
 
@@ -310,8 +307,8 @@ export const ButtonFooterContainer = styled.div`
   margin-right: 50px;
   align-self: flex-end;
   @media (max-width: 768px) {
-    margin-right: 0;
-    align-self: center;
+    margin-right: 12px;
+    align-self: flex-end;
   }
 `;
 
@@ -320,8 +317,8 @@ export const ScrollTop = styled.div`
   width: 40px;
   border-radius: 100%;
   text-decoration: none;
-  color: #fff;
-  background-color: #333;
+  color: #333;
+  background-color: #fff;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -339,8 +336,8 @@ export const ScrollTop = styled.div`
   }
   :hover {
     transform: scale(1.2);
-    color: #333;
-    background-color: #fff;
+    color: #fff;
+    background-color: #30a2ff;
   }
 `;
 
@@ -358,8 +355,8 @@ export const Footer = styled.div`
   text-align: center;
   margin-bottom: 0px;
   width: 100%;
-  color: #333;
-  background-color: #fff;
+  color: #ccc;
+  background-color: #333;
 `;
 
 export const SocialsContainer = styled.div`
