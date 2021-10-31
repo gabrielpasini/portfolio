@@ -27,7 +27,7 @@ const Links = () => {
   return (
     <PageContainer>
       <Content>
-        <Tooltip placement="left" title="Portfólio / Contato" arrow>
+        {/* <Tooltip placement="left" title="Portfólio / Contato" arrow>
           <GoToContainer>
             <Fade right ssrReveal delay={2000} duration={1000}>
               <Link href="/">
@@ -39,7 +39,7 @@ const Links = () => {
               </Link>
             </Fade>
           </GoToContainer>
-        </Tooltip>
+        </Tooltip> */}
         <TitleLogo title="GABRIEL PASINI" randomcolor={getRandomColor}>
           GABRIEL PASINI
         </TitleLogo>
@@ -56,19 +56,6 @@ const Links = () => {
               </a>
             </Link>
           ))}
-        {/* <Tooltip placement="left" title="Portfólio / Contato" arrow>
-          <GoToContainer>
-            <Fade right ssrReveal delay={2000} duration={1000}>
-              <Link href="/">
-                <a>
-                  <GoTo onClick={() => {}}>
-                    <RightIcon />
-                  </GoTo>
-                </a>
-              </Link>
-            </Fade>
-          </GoToContainer>
-        </Tooltip> */}
         <Particles style={bgStyle} params={bgParams} />
       </Content>
     </PageContainer>
