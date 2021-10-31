@@ -6,12 +6,14 @@ import {
   faTwitch,
   faYoutube,
   faDiscord,
+  faSteam,
 } from '@fortawesome/free-brands-svg-icons';
 
 export const LinkStyle = {
   zIndex: 1,
-  width: '90%',
-  height: '8%',
+  width: 500,
+  maxWidth: '90%',
+  height: 60,
   textDecoration: 'none',
 };
 
@@ -37,6 +39,16 @@ export const buttonProps = [
     url: 'https://github.com/gabrielpasini',
   },
   {
+    title: 'discord',
+    icon: faDiscord,
+    url: 'https://discord.gg/H32A8jw',
+  },
+  {
+    title: 'steam',
+    icon: faSteam,
+    url: 'https://steamcommunity.com/id/faiskera/',
+  },
+  {
     title: 'twitch',
     icon: faTwitch,
     url: 'https://twitch.tv/f4isk4',
@@ -45,11 +57,6 @@ export const buttonProps = [
     title: 'youtube',
     icon: faYoutube,
     url: 'https://www.youtube.com/channel/UCozHr9pJQPHNcmjvM4ELVRQ',
-  },
-  {
-    title: 'discord',
-    icon: faDiscord,
-    url: 'https://discord.gg/H32A8jw',
   },
 ];
 
