@@ -148,7 +148,6 @@ export const SendButton = styled.button`
   width: 40%;
   height: 32px;
   border: none;
-  border-radius: 6px;
   color: #fff;
   background-color: #30a2ff;
   box-shadow: 0px 4px 10px #222;
