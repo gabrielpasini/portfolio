@@ -145,12 +145,12 @@ export const SendButton = styled.button`
   justify-content: center;
   margin: 10px 0;
   font-weight: bold;
-  width: 40%;
+  padding: 6px;
+  width: 50%;
   height: 32px;
   border: none;
   color: #fff;
   background-color: #30a2ff;
-  box-shadow: 0px 4px 10px #222;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -160,7 +160,7 @@ export const SendButton = styled.button`
     margin-left: 8px;
   }
   :hover:enabled {
-    width: 100%;
+    box-shadow: 0px 4px 10px #222;
   }
   :disabled {
     cursor: not-allowed;
