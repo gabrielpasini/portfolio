@@ -124,7 +124,7 @@ export const GoTo = styled.div`
   }
   :hover {
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(48, 162, 255, 1);
   }
 `;
 

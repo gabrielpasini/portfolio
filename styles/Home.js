@@ -115,6 +115,7 @@ export const InputText = styled.input`
 `;
 
 export const InputTextArea = styled.textarea`
+  font-family: Arial;
   width: 100%;
   margin: 10px 0;
   resize: none;
@@ -272,31 +273,17 @@ export const ContactInfo = styled.div`
   @media (max-width: 768px) {
     display: none;
   }
+  & span {
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 5% 0;
+  }
   & p {
     font-size: 18px;
     letter-spacing: 1px;
     margin: 0;
   }
-`;
-
-export const WhatsContainer = styled.div`
-  width: 200px;
-  height: 200px;
-  margin-top: 20px;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  :hover {
-    box-shadow: 0px 0px 20px #222;
-    width: 260px;
-    height: 260px;
-  }
-`;
-
-export const WhatsQrCode = styled.img`
-  width: 100%;
 `;
 
 export const ButtonFooterContainer = styled.div`

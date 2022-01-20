@@ -2,16 +2,16 @@ import Link from 'next/link';
 import Particles from 'react-particles-js';
 import { LinkStyle, buttonProps, bgStyle, bgParams } from '../public/utils';
 import { Fade, Flip } from 'react-reveal';
-//import { Tooltip } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
 import { PageContainer } from '../styles/Home';
 import {
   Content,
   TitleLogo,
   Button,
   SocialIcon,
-  // GoToContainer,
-  // GoTo,
-  // RightIcon,
+  GoToContainer,
+  GoTo,
+  RightIcon,
 } from '../styles/Links';
 
 const Links = () => {
@@ -27,7 +27,7 @@ const Links = () => {
   return (
     <PageContainer>
       <Content>
-        {/* <Tooltip placement="left" title="Portfólio / Contato" arrow>
+        <Tooltip placement="left" title="Website / Portfólio" arrow>
           <GoToContainer>
             <Fade right ssrReveal delay={2000} duration={1000}>
               <Link href="/">
@@ -39,7 +39,7 @@ const Links = () => {
               </Link>
             </Fade>
           </GoToContainer>
-        </Tooltip> */}
+        </Tooltip>
         <TitleLogo title="GABRIEL PASINI" randomcolor={getRandomColor}>
           GABRIEL PASINI
         </TitleLogo>

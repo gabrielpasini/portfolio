@@ -21,12 +21,7 @@ export const buttonProps = [
   {
     title: 'instagram',
     icon: faInstagram,
-    url: 'https://www.instagram.com/gabrielfsk/',
-  },
-  {
-    title: 'whatsapp',
-    icon: faWhatsapp,
-    url: 'https://wa.me/qr/FAE64I55QBQOK1',
+    url: 'https://www.instagram.com/pasini.dev/',
   },
   {
     title: 'linkedin',

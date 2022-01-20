@@ -204,27 +204,44 @@ const Home = () => {
             <ContactInfo>
               <Fade right ssrReveal cascade duration={800}>
                 <div>
+                  <span>
+                    Bio: Iniciei na eletrônica e me apaixonei por programação,
+                    hoje em dia posso dizer que o meu combustível é desenvolver
+                    soluções diferenciadas, da aplicação móvel ao circuito
+                    impresso na placa!
+                    <br />
+                    Quando sou questionado sobre o que mais gosto na área, fica
+                    difícil responder, pois, além de amar desenvolver como
+                    profissional, tenho meus próprios projetos e nas horas de
+                    lazer também o faço como hobby.
+                    <br />
+                    <br />
+                    Minhas especialidades são:
+                    <br />
+                    - Desenvolver websites e sistemas responsivos [ReactJS];
+                    <br />
+                    - Desenvolver aplicativos para Android/iOS [ReactNative |
+                    Expo];
+                    <br />
+                    - Desenvolver APIs e integrações com banco de dados [NodeJS
+                    | MongoDB];
+                    <br />
+                    - Desenvolver software/hardware de IOT para automações
+                    [Alexa | MQTT | Arduino];
+                    <br />
+                    - Realizar a publicação e gerenciamento de Apps nas lojas
+                    [GooglePlay | AppleStore];
+                    <br />
+                    <br />
+                  </span>
+                </div>
+                <div>
                   <p>E-mail: gabrielpasini@outlook.com.br</p>
                 </div>
                 <div>
                   <p>Local: Porto Alegre - RS</p>
                 </div>
-                <div>
-                  <p>Fone: (51)99242-9497</p>
-                </div>
               </Fade>
-              <WhatsContainer>
-                <Link href="https://wa.me/qr/FAE64I55QBQOK1">
-                  <a title="WhatsApp" target="_blank">
-                    <Roll right ssrReveal duration={1000}>
-                      <WhatsQrCode
-                        src="/images/whats_qrcode.jpg"
-                        alt="Whats QR-Code"
-                      />
-                    </Roll>
-                  </a>
-                </Link>
-              </WhatsContainer>
             </ContactInfo>
           </ContactRow>
           <Footer>
@@ -236,24 +253,6 @@ const Home = () => {
               </Fade>
             </ButtonFooterContainer>
             <SocialsContainer>
-              {pageWidth < 768 ? (
-                <Link href="https://wa.me/qr/FAE64I55QBQOK1">
-                  <a target="_blank">
-                    <Flip bottom ssrReveal delay={500} duration={1000}>
-                      <SocialIcons icon={faWhatsapp} />
-                    </Flip>
-                  </a>
-                </Link>
-              ) : (
-                <></>
-              )}
-              <Link href="https://www.instagram.com/gabrielfsk/">
-                <a target="_blank">
-                  <Flip bottom ssrReveal delay={550} duration={1000}>
-                    <SocialIcons icon={faInstagram} />
-                  </Flip>
-                </a>
-              </Link>
               <Link href="https://github.com/gabrielpasini">
                 <a target="_blank">
                   <Flip bottom ssrReveal delay={600} duration={1000}>
@@ -270,7 +269,7 @@ const Home = () => {
               </Link>
             </SocialsContainer>
             <LightSpeed left ssrReveal delay={1000} duration={800}>
-              <Copyright>&copy; Copyright 2021 Gabriel Pasini</Copyright>
+              <Copyright>&copy; Copyright 2022 Gabriel Pasini</Copyright>
             </LightSpeed>
           </Footer>
         </ContactContent>
