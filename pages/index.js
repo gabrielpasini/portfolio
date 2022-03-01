@@ -7,12 +7,7 @@ import { Fade, Roll, Flip, LightSpeed } from 'react-reveal';
 import SendIcon from '@material-ui/icons/Send';
 import MuiAlert from '@material-ui/lab/Alert';
 import { Snackbar, Backdrop, CircularProgress } from '@material-ui/core';
-import {
-  faInstagram,
-  faLinkedinIn,
-  faGithub,
-  faWhatsapp,
-} from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   PageContainer,
   HomeContent,
@@ -27,11 +22,8 @@ import {
   ContactContent,
   ContactHead,
   ContactIcon,
-  ContactRow,
   ContactForm,
-  ContactInfo,
-  WhatsContainer,
-  WhatsQrCode,
+  BioInfo,
   ButtonFooterContainer,
   ScrollTop,
   TopIcon,
@@ -39,6 +31,12 @@ import {
   SocialsContainer,
   SocialIcons,
   Copyright,
+  BioContent,
+  BioRow,
+  BioProfileContainer,
+  BioAvatar,
+  BioTags,
+  ButtonBioContainer,
 } from '../styles/Home';
 
 const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -131,82 +129,39 @@ const Home = () => {
           <Particles style={bgStyle} params={bgParams} />
           <ButtonHomeContainer>
             <Fade bottom ssrReveal delay={500} duration={1000}>
-              <ScrollDown onClick={() => scrollTo('contact')}>
+              <ScrollDown onClick={() => scrollTo('bio')}>
                 <BottomIcon />
               </ScrollDown>
             </Fade>
           </ButtonHomeContainer>
         </HomeContent>
-        <ContactContent id="contact">
-          <Fade top ssrReveal duration={1000}>
-            <ContactHead>
-              <ContactIcon />
-              <p>Dúvidas? Sugestões? Entre em contato!</p>
-            </ContactHead>
-          </Fade>
-          <ContactRow>
-            <ContactForm noValidate autoComplete="off">
-              <Fade left ssrReveal cascade duration={500}>
-                <div>
-                  <label htmlFor="nome">Nome:</label>
-                </div>
-                <InputText
-                  id="nome"
-                  type="text"
-                  placeholder="digite o seu nome"
-                  value={name}
-                  onChange={(event) => setName(event.target.value)}
+        <BioContent id="bio">
+          <BioRow>
+            <BioProfileContainer>
+              <Fade left ssrReveal cascade duration={400}>
+                <BioAvatar
+                  src="https://avatars.githubusercontent.com/u/34244299?v=4"
+                  alt="avatar"
                 />
-                <div>
-                  <label htmlFor="email">E-mail:</label>
-                </div>
-                <InputText
-                  id="email"
-                  type="email"
-                  placeholder="digite o seu e-mail"
-                  error={showError}
-                  value={email}
-                  onChange={(event) => {
-                    setEmail(event.target.value);
-                    setShowError(false);
-                  }}
-                />
-                <div>
-                  <label htmlFor="assunto">Assunto:</label>
-                </div>
-                <InputText
-                  id="assunto"
-                  type="text"
-                  placeholder="digite o assunto"
-                  value={subject}
-                  onChange={(event) => setSubject(event.target.value)}
-                />
-                <div>
-                  <label htmlFor="mensagem">Mensagem:</label>
-                </div>
-                <InputTextArea
-                  id="mensagem"
-                  type="textarea"
-                  placeholder="digite a mensagem"
-                  rows={pageWidth > 768 ? 4 : 1}
-                  value={message}
-                  onChange={(event) => setMessage(event.target.value)}
-                />
-                <SendButton
-                  disabled={!name || !email || !subject || !message}
-                  onClick={submitEmail}
-                >
-                  <span>enviar</span>
-                  <SendIcon />
-                </SendButton>
+                <BioTags>
+                  <div>
+                    <span>Gabriel Pasini</span>
+                  </div>
+                  <div>
+                    <span>1995</span>
+                  </div>
+                  <div>
+                    <span>Porto Alegre - RS</span>
+                  </div>
+                </BioTags>
               </Fade>
-            </ContactForm>
-            <ContactInfo>
-              <Fade right ssrReveal cascade duration={800}>
+            </BioProfileContainer>
+            <BioInfo>
+              <Fade ssrReveal duration={800}>
                 <div>
                   <span>
-                    Bio: Iniciei na eletrônica e me apaixonei por programação,
-                    hoje em dia posso dizer que o meu combustível é desenvolver
+                    Iniciei na eletrônica e me apaixonei por programação, hoje
+                    em dia posso dizer que o meu combustível é desenvolver
                     soluções diferenciadas, da aplicação móvel ao circuito
                     impresso na placa!
                     <br />
@@ -235,15 +190,71 @@ const Home = () => {
                     <br />
                   </span>
                 </div>
-                <div>
-                  <p>E-mail: gabrielpasini@outlook.com.br</p>
-                </div>
-                <div>
-                  <p>Local: Porto Alegre - RS</p>
-                </div>
               </Fade>
-            </ContactInfo>
-          </ContactRow>
+            </BioInfo>
+          </BioRow>
+          <ButtonBioContainer>
+            <Fade bottom ssrReveal delay={500} duration={1000}>
+              <ScrollDown onClick={() => scrollTo('contact')}>
+                <BottomIcon />
+              </ScrollDown>
+            </Fade>
+          </ButtonBioContainer>
+        </BioContent>
+        <ContactContent id="contact">
+          <Fade top ssrReveal duration={1000}>
+            <ContactHead>
+              <ContactIcon />
+              <p>
+                Quer fazer um orçamento? Ficou com alguma dúvida? Me envie uma
+                mensagem!
+              </p>
+            </ContactHead>
+          </Fade>
+          <ContactForm noValidate autoComplete="off">
+            <Fade left ssrReveal cascade duration={500}>
+              <InputText
+                id="nome"
+                type="text"
+                placeholder="digite o seu nome"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+              <InputText
+                id="email"
+                type="email"
+                placeholder="digite o seu e-mail"
+                error={showError}
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                  setShowError(false);
+                }}
+              />
+              <InputText
+                id="assunto"
+                type="text"
+                placeholder="digite o assunto"
+                value={subject}
+                onChange={(event) => setSubject(event.target.value)}
+              />
+              <InputTextArea
+                id="mensagem"
+                type="textarea"
+                placeholder="digite a mensagem"
+                rows={pageWidth > 768 ? 4 : 1}
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+              />
+              <SendButton
+                disabled={!name || !email || !subject || !message}
+                onClick={submitEmail}
+              >
+                <span>enviar</span>
+                <SendIcon />
+              </SendButton>
+            </Fade>
+          </ContactForm>
           <Footer>
             <ButtonFooterContainer>
               <Fade right ssrReveal delay={2000} duration={1000}>

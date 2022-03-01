@@ -15,7 +15,8 @@ export const Content = styled.div`
 export const TitleLogo = styled.div`
   z-index: 3;
   color: #fff;
-  font-size: 32px;
+  font-size: calc(2em + 1vw);
+  font-weight: bold;
   text-shadow: 0px 0px 20px #222;
   animation: glitch 5s alternate infinite;
   :before {
@@ -66,7 +67,8 @@ export const Button = styled.div`
   height: 100%;
   align-items: center;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Poppins;
+  font-weight: 400;
   font-size: 20px;
   border-radius: 10px;
   color: #fff;

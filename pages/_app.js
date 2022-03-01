@@ -23,6 +23,10 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css?family=Anton"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css?family=Poppins"
+          rel="stylesheet"
+        />
         <title>Gabriel Pasini</title>
       </Head>
       <Component {...pageProps} />
