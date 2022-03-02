@@ -79,6 +79,8 @@ const Home = () => {
     });
   };
 
+  const getCurrentYear = () => new Date().getFullYear();
+
   const submitEmail = async (event) => {
     event.preventDefault();
     const regex = /\S+@\S+\.\S+/;
@@ -280,7 +282,9 @@ const Home = () => {
               </Link>
             </SocialsContainer>
             <LightSpeed left ssrReveal delay={1000} duration={800}>
-              <Copyright>&copy; Copyright 2022 Gabriel Pasini</Copyright>
+              <Copyright>
+                &copy; Copyright {getCurrentYear()} Gabriel Pasini
+              </Copyright>
             </LightSpeed>
           </Footer>
         </ContactContent>
