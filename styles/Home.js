@@ -28,7 +28,7 @@ export const HomeContent = styled.div`
 
 export const TitleLogo = styled.div`
   z-index: 1;
-  font-size: calc(2em + 4vw);
+  font-size: calc(1em + 8vw);
   color: #fff;
   text-shadow: 0px 0px 20px #222;
   animation: glitch 5s alternate infinite;
@@ -75,7 +75,7 @@ export const TitleLogo = styled.div`
 
 export const Subtitle = styled.span`
   z-index: 1;
-  font-size: calc(1em + 1vw);
+  font-size: calc(1em + 2vw);
   color: #30a2ff;
   text-shadow: 0px 0px 20px #222;
 `;
@@ -165,7 +165,7 @@ export const BioTags = styled.div`
   span {
     background-color: #30a2ff;
     padding: 0 4px;
-    font-size: calc(0.4em + 1vw);
+    font-size: calc(0.8em + 0.1vw);
     border-radius: 4px;
     margin: 4px;
   }
@@ -193,7 +193,7 @@ export const BioInfo = styled.div`
   justify-content: flex-start;
   & span {
     font-family: Poppins;
-    font-size: calc(0.4em + 1vw);
+    font-size: calc(1em + 0.1vw);
   }
   @media (max-width: 768px) {
     width: 90%;
@@ -226,7 +226,8 @@ export const ContactHead = styled.div`
     margin-top: 0;
   }
   & p {
-    font-size: calc(0.8em + 1vw);
+    font-weight: bold;
+    font-size: calc(1em + 0.8vw);
     margin: 20px 10px 0 10px;
   }
 `;
@@ -380,7 +381,7 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: calc(0.1em + 1vw);
+  font-size: calc(0.8em + 0.1vw);
   text-align: center;
   margin-bottom: 0px;
   width: 100%;

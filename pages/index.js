@@ -148,7 +148,7 @@ const Home = () => {
                     <span>Gabriel Pasini</span>
                   </div>
                   <div>
-                    <span>1995</span>
+                    <span>25/05/1995</span>
                   </div>
                   <div>
                     <span>Porto Alegre - RS</span>

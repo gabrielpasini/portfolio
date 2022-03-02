@@ -15,7 +15,7 @@ export const Content = styled.div`
 export const TitleLogo = styled.div`
   z-index: 3;
   color: #fff;
-  font-size: calc(2em + 1vw);
+  font-size: calc(1em + 2vw);
   font-weight: bold;
   text-shadow: 0px 0px 20px #222;
   animation: glitch 5s alternate infinite;
