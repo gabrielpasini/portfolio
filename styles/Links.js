@@ -1,19 +1,24 @@
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ChevronRight from '@material-ui/icons/ChevronRight';
+import styled from 'styled-components';
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   height: 100%;
   width: 100%;
   overflow: hidden;
+
+  & > * {
+    margin-bottom: 2%;
+  }
 `;
 
 export const TitleLogo = styled.div`
   z-index: 3;
+  margin: 2% 0;
   color: #fff;
   font-size: calc(1em + 2vw);
   font-weight: bold;

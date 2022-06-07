@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

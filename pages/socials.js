@@ -2,7 +2,7 @@ import { Tooltip } from '@material-ui/core';
 import Link from 'next/link';
 import Particles from 'react-particles-js';
 import { Fade, Flip } from 'react-reveal';
-import { allButtons, bgParams, bgStyle, LinkStyle } from '../public/utils';
+import { bgParams, bgStyle, LinkStyle, socialButtons } from '../public/utils';
 import { PageContainer } from '../styles/Home';
 import {
   Button,
@@ -14,7 +14,7 @@ import {
   TitleLogo,
 } from '../styles/Links';
 
-const Links = () => {
+const Socials = () => {
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -41,10 +41,10 @@ const Links = () => {
           </GoToContainer>
         </Tooltip>
         <TitleLogo title="GABRIEL PASINI" randomcolor={getRandomColor}>
-          GABRIEL PASINI
+          GABRIEL PASINI - FAISKA
         </TitleLogo>
-        {allButtons.length > 0 &&
-          allButtons.map((button, index) => (
+        {socialButtons.length > 0 &&
+          socialButtons.map((button, index) => (
             <Link href={button.url} key={index}>
               <a target="_blank" style={LinkStyle}>
                 <Button>
@@ -62,4 +62,4 @@ const Links = () => {
   );
 };
 
-export default Links;
+export default Socials;

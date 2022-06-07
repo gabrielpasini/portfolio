@@ -14,7 +14,7 @@ import {
   TitleLogo,
 } from '../styles/Links';
 
-const Links = () => {
+const AllLinks = () => {
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -62,4 +62,4 @@ const Links = () => {
   );
 };
 
-export default Links;
+export default AllLinks;
