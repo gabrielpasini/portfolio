@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Axios from '../axios';
 import { bgStyle, bgParams } from '../public/utils';
-import Particles from 'react-particles-js';
-import { Fade, Roll, Flip, LightSpeed } from 'react-reveal';
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
+import { Fade, Flip, LightSpeed } from 'react-reveal';
 import SendIcon from '@material-ui/icons/Send';
 import MuiAlert from '@material-ui/lab/Alert';
 import { Snackbar, Backdrop, CircularProgress } from '@material-ui/core';
@@ -99,10 +100,10 @@ const Home = () => {
         assunto: subject,
         mensagem: message,
       });
-      if (sendedEmail.data.status === 'success') {
+      if (sendedEmail?.data?.status === 'success') {
         setShowSuccess(true);
         setShowError(false);
-        setSuccessMessage(sendedEmail.data.message);
+        setSuccessMessage(sendedEmail?.data?.message);
         setErrorMessage('');
         cleanForm();
       }
@@ -110,7 +111,7 @@ const Home = () => {
       setShowError(true);
       setShowSuccess(false);
       setSuccessMessage('');
-      setErrorMessage(err.data.message);
+      setErrorMessage(err?.data?.message);
     }
     setLoading(false);
   };
@@ -118,6 +119,10 @@ const Home = () => {
   useEffect(() => {
     setPageWidth(window.innerWidth);
     getRandomColor();
+  }, []);
+
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
   }, []);
 
   return (
@@ -128,7 +133,12 @@ const Home = () => {
             GABRIEL PASINI
           </TitleLogo>
           <Subtitle>Desenvolvedor de Software</Subtitle>
-          <Particles style={bgStyle} params={bgParams} />
+          <Particles
+            style={bgStyle}
+            id="particles"
+            init={particlesInit}
+            options={bgParams}
+          />
           <ButtonHomeContainer>
             <Fade bottom ssrReveal delay={500} duration={1000}>
               <ScrollDown onClick={() => scrollTo('bio')}>

@@ -1,6 +1,8 @@
+import { useCallback } from 'react';
+import { loadFull } from 'tsparticles';
 import { Tooltip } from '@material-ui/core';
 import Link from 'next/link';
-import Particles from 'react-particles-js';
+import Particles from 'react-particles';
 import { Fade, Flip } from 'react-reveal';
 import {
   bgParams,
@@ -28,6 +30,10 @@ const Links = () => {
     }
     return color;
   };
+
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
 
   return (
     <PageContainer>
@@ -61,7 +67,12 @@ const Links = () => {
               </a>
             </Link>
           ))}
-        <Particles style={bgStyle} params={bgParams} />
+        <Particles
+          style={bgStyle}
+          id="particles"
+          init={particlesInit}
+          options={bgParams}
+        />
       </Content>
     </PageContainer>
   );

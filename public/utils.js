@@ -21,24 +21,55 @@ export const bgStyle = {
   top: 0,
   left: 0,
   zIndex: 0,
-  //background: 'url(images/blue_galaxy.jpg)',
-  //background: `radial-gradient(circle at bottom, #ccc 10%, #000 70%)`,
-  background: `linear-gradient(to bottom, #000,#000,#ccc)`,
-  //background: '#222',
 };
 
 export const bgParams = {
+  background: {
+    color: { value: '#000' },
+    opacity: 0,
+  },
   color: {
     value: '#ffffff',
   },
   particles: {
+    color: {
+      value: '#ffffff',
+    },
+    links: {
+      color: '#ffffff',
+      distance: 150,
+      enable: true,
+      opacity: 0.5,
+      width: 2,
+    },
+    collisions: {
+      enable: true,
+    },
+    move: {
+      direction: 'none',
+      enable: true,
+      outModes: {
+        default: 'bounce',
+      },
+      random: false,
+      speed: 2,
+      straight: false,
+    },
     number: {
+      density: {
+        enable: true,
+        area: 400,
+      },
       value: 30,
     },
-    size: {
-      value: 4,
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: 'circle',
     },
   },
+  detectRetina: true,
   interactivity: {
     events: {
       onhover: {

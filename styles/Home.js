@@ -14,6 +14,7 @@ export const PageContainer = styled.div`
   width: 100%;
   top: 0;
   left: 0;
+  background: linear-gradient(to bottom, #000, #000, #ccc);
 `;
 
 export const HomeContent = styled.div`
@@ -24,6 +25,7 @@ export const HomeContent = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background: linear-gradient(to bottom, #000, #000, #ccc);
 `;
 
 export const TitleLogo = styled.div`
