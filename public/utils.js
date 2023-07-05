@@ -29,14 +29,14 @@ export const bgParams = {
     opacity: 0,
   },
   color: {
-    value: '#ffffff',
+    value: '#fff',
   },
   particles: {
     color: {
-      value: '#ffffff',
+      value: '#fff',
     },
     links: {
-      color: '#ffffff',
+      color: '#fff',
       distance: 150,
       enable: true,
       opacity: 0.5,
@@ -161,5 +161,16 @@ export const socialButtons = [
     title: 'youtube',
     icon: faYoutube,
     url: 'https://www.youtube.com/channel/UCozHr9pJQPHNcmjvM4ELVRQ',
+  },
+];
+
+export const Projects = [
+  {
+    title: 'UTI AUX',
+    description: 'Aplicativo para auxiliar profissionais da saúde na UTI.',
+    icon: '',
+    urlWeb: '',
+    urlAndroid: '',
+    urlIphone: '',
   },
 ];

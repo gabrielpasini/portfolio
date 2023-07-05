@@ -24,7 +24,6 @@ import {
   ContactHead,
   ContactIcon,
   ContactForm,
-  BioInfo,
   ButtonFooterContainer,
   ScrollTop,
   TopIcon,
@@ -32,12 +31,14 @@ import {
   SocialsContainer,
   SocialIcons,
   Copyright,
-  BioContent,
-  BioRow,
-  BioProfileContainer,
+  BioInfo,
+  BioLinks,
   BioAvatar,
   BioTags,
-  ButtonBioContainer,
+  ProjectsContent,
+  ProjectsHead,
+  ProjectsRow,
+  ProjectsIcon,
 } from '../styles/Home';
 
 const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -129,90 +130,61 @@ const Home = () => {
     <>
       <PageContainer>
         <HomeContent id="home">
-          <TitleLogo title="GABRIEL PASINI" randomcolor={randomColor}>
-            GABRIEL PASINI
+          <Subtitle>GABRIEL PASINI</Subtitle>
+          <TitleLogo title="SOFTWARE DEVELOPER" randomcolor={randomColor}>
+            SOFTWARE DEVELOPER
           </TitleLogo>
-          <Subtitle>Desenvolvedor de Software</Subtitle>
           <Particles
             style={bgStyle}
             id="particles"
             init={particlesInit}
             options={bgParams}
           />
-          <ButtonHomeContainer>
-            <Fade bottom ssrReveal delay={500} duration={1000}>
-              <ScrollDown onClick={() => scrollTo('bio')}>
-                <BottomIcon />
-              </ScrollDown>
-            </Fade>
-          </ButtonHomeContainer>
-        </HomeContent>
-        <BioContent id="bio">
-          <BioRow>
-            <BioProfileContainer>
-              <Fade left ssrReveal cascade duration={400}>
+          <SocialsContainer>
+            <Fade left ssrReveal cascade duration={400}>
+              <BioInfo>
                 <BioAvatar
                   src="https://avatars.githubusercontent.com/u/34244299?v=4"
                   alt="avatar"
                 />
                 <BioTags>
-                  <div>
-                    <span>Gabriel Pasini</span>
-                  </div>
-                  <div>
-                    <span>25/05/1995</span>
-                  </div>
-                  <div>
-                    <span>Porto Alegre - RS</span>
-                  </div>
+                  <span>25/05/1995</span>
+                  <span>Alvorada - RS</span>
                 </BioTags>
-              </Fade>
-            </BioProfileContainer>
-            <BioInfo>
-              <Fade ssrReveal duration={800}>
-                <div>
-                  <span>
-                    Iniciei na eletrônica e me apaixonei por programação, hoje
-                    em dia posso dizer que o meu combustível é desenvolver
-                    soluções diferenciadas, da aplicação móvel ao circuito
-                    impresso na placa!
-                    <br />
-                    Quando sou questionado sobre o que mais gosto na área, fica
-                    difícil responder, pois, além de amar desenvolver como
-                    profissional, tenho meus próprios projetos e nas horas de
-                    lazer também o faço como hobby.
-                    <br />
-                    <br />
-                    Minhas especialidades são:
-                    <br />
-                    - Desenvolver websites e sistemas responsivos [ReactJS];
-                    <br />
-                    - Desenvolver aplicativos para Android/iOS [ReactNative |
-                    Expo];
-                    <br />
-                    - Desenvolver APIs e integrações com banco de dados [NodeJS
-                    | MongoDB];
-                    <br />
-                    - Desenvolver software/hardware de IOT para automações
-                    [Alexa | MQTT | Arduino];
-                    <br />
-                    - Realizar a publicação e gerenciamento de Apps nas lojas
-                    [GooglePlay | AppleStore];
-                    <br />
-                    <br />
-                  </span>
-                </div>
-              </Fade>
-            </BioInfo>
-          </BioRow>
-          <ButtonBioContainer>
+              </BioInfo>
+              <BioLinks>
+                <Link href="https://github.com/gabrielpasini">
+                  <a target="_blank">
+                    <Flip bottom ssrReveal delay={600} duration={1000}>
+                      <SocialIcons icon={faGithub} />
+                    </Flip>
+                  </a>
+                </Link>
+                <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
+                  <a target="_blank">
+                    <Flip bottom ssrReveal delay={650} duration={1000}>
+                      <SocialIcons icon={faLinkedinIn} />
+                    </Flip>
+                  </a>
+                </Link>
+              </BioLinks>
+            </Fade>
+          </SocialsContainer>
+          <ButtonHomeContainer>
             <Fade bottom ssrReveal delay={500} duration={1000}>
-              <ScrollDown onClick={() => scrollTo('contact')}>
+              <ScrollDown onClick={() => scrollTo('projects')}>
                 <BottomIcon />
               </ScrollDown>
             </Fade>
-          </ButtonBioContainer>
-        </BioContent>
+          </ButtonHomeContainer>
+        </HomeContent>
+        <ProjectsContent id="projects">
+          <ProjectsHead>
+            <ProjectsIcon />
+            <p>Meus projetos</p>
+          </ProjectsHead>
+          <ProjectsRow>em construção...</ProjectsRow>
+        </ProjectsContent>
         <ContactContent id="contact">
           <Fade top ssrReveal duration={1000}>
             <ContactHead>
@@ -275,22 +247,6 @@ const Home = () => {
                 </ScrollTop>
               </Fade>
             </ButtonFooterContainer>
-            <SocialsContainer>
-              <Link href="https://github.com/gabrielpasini">
-                <a target="_blank">
-                  <Flip bottom ssrReveal delay={600} duration={1000}>
-                    <SocialIcons icon={faGithub} />
-                  </Flip>
-                </a>
-              </Link>
-              <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
-                <a target="_blank">
-                  <Flip bottom ssrReveal delay={650} duration={1000}>
-                    <SocialIcons icon={faLinkedinIn} />
-                  </Flip>
-                </a>
-              </Link>
-            </SocialsContainer>
             <LightSpeed left ssrReveal delay={1000} duration={800}>
               <Copyright>
                 &copy; Copyright {getCurrentYear()} Gabriel Pasini

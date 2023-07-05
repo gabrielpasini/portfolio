@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import DevicesIcon from '@material-ui/icons/ImportantDevices';
+import AccountBox from '@material-ui/icons/AccountBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const PageContainer = styled.div`
@@ -14,7 +16,21 @@ export const PageContainer = styled.div`
   width: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(to bottom, #000, #000, #ccc);
+  background: linear-gradient(45deg, #333, #555);
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 100%;
+    }
+    50% {
+      background-position: 100% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
 `;
 
 export const HomeContent = styled.div`
@@ -25,12 +41,13 @@ export const HomeContent = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(to bottom, #000, #000, #ccc);
 `;
 
 export const TitleLogo = styled.div`
   z-index: 1;
-  font-size: calc(1em + 8vw);
+  font-size: max(60px, 16vw);
+  width: 90%;
+  line-height: 0.8em;
   color: #fff;
   text-shadow: 0px 0px 20px #222;
   animation: glitch 5s alternate infinite;
@@ -54,7 +71,7 @@ export const TitleLogo = styled.div`
       transform: translate(-2px, 0) skew(0deg);
     }
     62% {
-      transform: translate(0, 0) skew(20deg);
+      transform: translate(0, 0) skew(5deg);
     }
   }
   @keyframes glitchTop {
@@ -77,7 +94,9 @@ export const TitleLogo = styled.div`
 
 export const Subtitle = styled.span`
   z-index: 1;
-  font-size: calc(1em + 2vw);
+  font-size: max(24px, 4vw);
+  text-align: left;
+  width: 88%;
   color: #30a2ff;
   text-shadow: 0px 0px 20px #222;
 `;
@@ -86,6 +105,7 @@ export const ButtonHomeContainer = styled.div`
   position: absolute;
   display: block;
   bottom: 2vh;
+  z-index: 2;
 `;
 
 export const ScrollDown = styled.div`
@@ -123,7 +143,7 @@ export const BottomIcon = styled(ExpandMoreIcon)`
   width: 40px !important;
 `;
 
-export const BioContent = styled.div`
+export const ProjectsContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -131,99 +151,14 @@ export const BioContent = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: #333;
   color: #fff;
 `;
 
-export const BioRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-export const BioProfileContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 5% 5%;
-  width: 20%;
-  @media (max-width: 768px) {
-    width: 90%;
-    margin: 0 5%;
-  }
-`;
-
-export const BioTags = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  span {
-    background-color: #30a2ff;
-    padding: 0 4px;
-    font-size: calc(0.8em + 0.1vw);
-    border-radius: 4px;
-    margin: 4px;
-  }
-  @media (max-width: 768px) {
-    flex-direction: row;
-  }
-`;
-
-export const BioAvatar = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 100%;
-  margin-bottom: 4px;
-  @media (max-width: 768px) {
-    height: 14vh;
-    width: auto;
-  }
-`;
-
-export const BioInfo = styled.div`
-  margin: 0 5%;
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  & span {
-    font-family: Poppins;
-    font-size: calc(1em + 0.1vw);
-  }
-  @media (max-width: 768px) {
-    width: 90%;
-  }
-`;
-
-export const ButtonBioContainer = styled.div`
-  display: flex;
-  justify-self: flex-end;
-  align-self: center;
-  margin-bottom: 2vh;
-`;
-
-export const ContactContent = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
-  background: #ccc;
-  color: #333;
-`;
-
-export const ContactHead = styled.div`
+export const ProjectsHead = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+  width: 100%;
   @media (max-width: 768px) {
     margin-top: 0;
   }
@@ -234,10 +169,110 @@ export const ContactHead = styled.div`
   }
 `;
 
-export const ContactIcon = styled(MailOutlineIcon)`
+export const ProjectsRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ProjectsIcon = styled(DevicesIcon)`
   width: 60px !important;
   height: 60px !important;
   padding-top: 12px;
+  margin-left: 5%;
+`;
+
+export const SocialsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 88%;
+  height: 40px;
+  margin-top: 16px;
+  z-index: 2;
+`;
+
+export const BioInfo = styled.div`
+  display: flex;
+  flex: 0.5;
+`;
+
+export const BioTags = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 10px;
+    background-color: #fff;
+    color: #30a2ff;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: 8px;
+    text-align: center;
+    filter: drop-shadow(0px 0px 8px #222);
+  }
+`;
+
+export const BioAvatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 8px #222;
+`;
+
+export const BioLinks = styled.div`
+  display: flex;
+  flex: 0.5;
+  justify-self: flex-end;
+  margin: 0 16px;
+`;
+
+export const SocialIcons = styled(FontAwesomeIcon)`
+  width: 40px;
+  height: 40px;
+  margin-left: 16px;
+  color: #30a2ff;
+  filter: drop-shadow(0px 0px 8px #222);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  :hover {
+    transform: scale(1.3);
+  }
+`;
+
+export const ContactContent = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  color: #fff;
+`;
+
+export const ContactHead = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  & p {
+    font-weight: bold;
+    font-size: calc(1em + 0.8vw);
+    margin: 0 12px;
+  }
+`;
+
+export const ContactIcon = styled(MailOutlineIcon)`
+  width: 60px !important;
+  height: 60px !important;
   margin-left: 5%;
 `;
 
@@ -260,6 +295,8 @@ export const InputText = styled.input`
   padding: 6px;
   color: #fff;
   background-color: #333;
+  border: 2px solid #ccc;
+  border-radius: 4px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -285,6 +322,8 @@ export const InputTextArea = styled.textarea`
   padding: 6px;
   color: #fff;
   background-color: #333;
+  border: 2px solid #ccc;
+  border-radius: 4px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -312,6 +351,7 @@ export const SendButton = styled.button`
   width: 50%;
   height: 32px;
   border: none;
+  border-radius: 4px;
   color: #fff;
   background-color: #30a2ff;
   -webkit-transition: all 0.3s ease-in-out;
@@ -338,6 +378,7 @@ export const ButtonFooterContainer = styled.div`
   margin-bottom: -20px;
   margin-right: 50px;
   align-self: flex-end;
+  z-index: 2;
   @media (max-width: 768px) {
     margin-right: 12px;
     align-self: flex-end;
@@ -391,26 +432,6 @@ export const Footer = styled.div`
   background-color: #333;
 `;
 
-export const SocialsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-export const SocialIcons = styled(FontAwesomeIcon)`
-  width: 40px;
-  height: 40px;
-  margin: 14px 14px 8px 14px;
-  color: #30a2ff;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  :hover {
-    transform: scale(1.3);
-  }
-`;
-
 export const Copyright = styled.div`
-  margin: 0 0 8px 0;
+  margin: 12px 0;
 `;
