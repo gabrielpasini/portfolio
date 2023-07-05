@@ -130,7 +130,11 @@ const Home = () => {
     <>
       <PageContainer>
         <HomeContent id="home">
-          <Subtitle>GABRIEL PASINI</Subtitle>
+          <Subtitle>
+            <Fade left ssrReveal cascade duration={400}>
+              GABRIEL PASINI
+            </Fade>
+          </Subtitle>
           <TitleLogo title="SOFTWARE DEVELOPER" randomcolor={randomColor}>
             SOFTWARE DEVELOPER
           </TitleLogo>
@@ -141,7 +145,7 @@ const Home = () => {
             options={bgParams}
           />
           <SocialsContainer>
-            <Fade left ssrReveal cascade duration={400}>
+            <Fade left ssrReveal cascade delay={200} duration={400}>
               <BioInfo>
                 <BioAvatar
                   src="https://avatars.githubusercontent.com/u/34244299?v=4"
@@ -155,14 +159,14 @@ const Home = () => {
               <BioLinks>
                 <Link href="https://github.com/gabrielpasini">
                   <a target="_blank">
-                    <Flip bottom ssrReveal delay={600} duration={1000}>
+                    <Flip right ssrReveal delay={600} duration={1000}>
                       <SocialIcons icon={faGithub} />
                     </Flip>
                   </a>
                 </Link>
                 <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
                   <a target="_blank">
-                    <Flip bottom ssrReveal delay={650} duration={1000}>
+                    <Flip right ssrReveal delay={650} duration={1000}>
                       <SocialIcons icon={faLinkedinIn} />
                     </Flip>
                   </a>
