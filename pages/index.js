@@ -210,7 +210,7 @@ const Home = () => {
                       <CardDescription>{project.description}</CardDescription>
                       {project.achievements?.length &&
                         project.achievements.map((achiev) => (
-                          <CardAchievements>
+                          <CardAchievements key={achiev.name}>
                             <AchievIcon place={achiev.place} />
                             <Achievement>
                               {achiev.place}° - {achiev.name}
