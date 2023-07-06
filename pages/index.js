@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Axios from '../axios';
-import { bgStyle, bgParams } from '../public/utils';
+import { bgStyle, bgParams, projects } from '../public/utils';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
 import { Fade, Flip, LightSpeed } from 'react-reveal';
@@ -47,60 +47,10 @@ import {
   CardPlatforms,
   PlatformTag,
   PlatformIcon,
+  CardAchievements,
+  AchievIcon,
+  Achievement,
 } from '../styles/Home';
-
-const projects = [
-  {
-    icon: 'https://i.imgur.com/UJsCgft.png',
-    name: 'Health Skill',
-    description:
-      'Plataforma de cursos e e-books voltada para profissionais da saúde.',
-    platforms: [
-      { name: 'Web', url: 'https://healthskill.app/' },
-      {
-        name: 'Android',
-        url: 'https://play.google.com/store/apps/details?id=com.life_panda.health_skill',
-      },
-      {
-        name: 'iOS',
-        url: 'https://apps.apple.com/us/app/health-skill/id6444901153',
-      },
-    ],
-    production: true,
-  },
-  {
-    icon: 'https://i.imgur.com/dEce2S9.png',
-    name: 'UTI AUX',
-    description:
-      'Conteúdo auxiliar para profissionais da saúde e estudantes da Unidade de Terapia Intensiva.',
-    platforms: [
-      { name: 'Web', url: 'https://utiaux.app/' },
-      {
-        name: 'Android',
-        url: 'https://play.google.com/store/apps/details?id=com.utiaux.utiaux',
-      },
-      {
-        name: 'iOS',
-        url: 'https://apps.apple.com/us/app/uti-aux/id1581031657',
-      },
-    ],
-    production: true,
-  },
-  {
-    icon: 'https://i.imgur.com/W7pMi1w.png',
-    name: 'Pokedex',
-    description:
-      'Listagem e busca de pokemon comum/shiny com visualização parallax.',
-    platforms: [{ name: 'Web', url: 'https://pokedex.pasini.dev/' }],
-    production: true,
-  },
-  {
-    icon: 'https://i.imgur.com/HEvVvIC.png',
-    name: 'La Vita',
-    description: 'Em construção...',
-    production: false,
-  },
-];
 
 const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
 
@@ -239,6 +189,7 @@ const Home = () => {
             <Fade bottom ssrReveal delay={500} duration={1000}>
               <ScrollDown onClick={() => scrollTo('projects')}>
                 <BottomIcon />
+                <span>projetos</span>
               </ScrollDown>
             </Fade>
           </ButtonHomeContainer>
@@ -249,28 +200,38 @@ const Home = () => {
             <p>Meus projetos</p>
           </ProjectsHead>
           <ProjectsRow>
-            {projects.map((project) => (
-              <ProjectCard production={project.production} key={project.name}>
-                <Fade ssrReveal cascade delay={400} duration={800}>
-                  <CardIcon src={project.icon} alt={project.name} />
-                  <CardContent>
-                    <CardTitle>{project.name}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
-                    <CardPlatforms>
-                      {project.platforms?.length &&
-                        project.platforms.map((platform) => (
-                          <PlatformTag key={platform.name}>
-                            <Link href={platform.url}>
-                              <a target="_blank">{platform.name}</a>
-                            </Link>
-                            <PlatformIcon />
-                          </PlatformTag>
+            {projects?.length &&
+              projects.map((project) => (
+                <ProjectCard production={project.production} key={project.name}>
+                  <Fade ssrReveal cascade delay={400} duration={800}>
+                    <CardIcon src={project.icon} alt={project.name} />
+                    <CardContent>
+                      <CardTitle>{project.name}</CardTitle>
+                      <CardDescription>{project.description}</CardDescription>
+                      {project.achievements?.length &&
+                        project.achievements.map((achiev) => (
+                          <CardAchievements>
+                            <AchievIcon place={achiev.place} />
+                            <Achievement>
+                              {achiev.place}° - {achiev.name}
+                            </Achievement>
+                          </CardAchievements>
                         ))}
-                    </CardPlatforms>
-                  </CardContent>
-                </Fade>
-              </ProjectCard>
-            ))}
+                      <CardPlatforms>
+                        {project.platforms?.length &&
+                          project.platforms.map((platform) => (
+                            <PlatformTag key={platform.name}>
+                              <Link href={platform.url}>
+                                <a target="_blank">{platform.name}</a>
+                              </Link>
+                              <PlatformIcon />
+                            </PlatformTag>
+                          ))}
+                      </CardPlatforms>
+                    </CardContent>
+                  </Fade>
+                </ProjectCard>
+              ))}
           </ProjectsRow>
         </ProjectsContent>
         <ContactContent id="contact">

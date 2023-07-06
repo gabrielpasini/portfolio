@@ -4,6 +4,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import DevicesIcon from '@material-ui/icons/ImportantDevices';
 import LaunchIcon from '@material-ui/icons/Launch';
+import TrophyIcon from '@material-ui/icons/EmojiEvents';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const PageContainer = styled.div`
@@ -16,7 +17,17 @@ export const PageContainer = styled.div`
   width: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(45deg, #333, #555);
+`;
+
+export const HomeContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(45deg, #222, #444);
   background-size: 300% 300%;
   animation: colors 15s ease infinite;
 
@@ -31,16 +42,6 @@ export const PageContainer = styled.div`
       background-position: 0% 100%;
     }
   }
-`;
-
-export const HomeContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
 `;
 
 export const TitleLogo = styled.div`
@@ -109,13 +110,14 @@ export const ButtonHomeContainer = styled.div`
 `;
 
 export const ScrollDown = styled.div`
-  height: 40px;
-  width: 40px;
-  line-height: 40px;
-  border-radius: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 10px;
   text-decoration: none;
-  color: #888;
-  background-color: #fff;
+  color: #fff;
+  background-color: #30a2ff;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -127,43 +129,57 @@ export const ScrollDown = styled.div`
       transform: scale(1);
     }
     to {
-      box-shadow: 0px 0px 20px #222;
+      box-shadow: 0px 0px 8px #222;
       transform: scale(1.1);
     }
   }
   :hover {
-    color: #fff;
-    background-color: #30a2ff;
+    cursor: pointer;
+    color: #30a2ff;
+    background-color: #fff;
+  }
+  span {
+    font-size: 14px;
+    margin-right: 6px;
   }
 `;
 
 export const BottomIcon = styled(ExpandMoreIcon)`
-  margin: 0;
-  height: 40px !important;
-  width: 40px !important;
+  height: 36px !important;
+  width: 36px !important;
 `;
 
 export const ProjectsContent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   color: #fff;
+  padding: 32px 0 16px 0;
+  background-color: #666;
 `;
 
 export const ProjectsHead = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 16px 0;
+  align-items: center;
   width: 100%;
+  margin-bottom: 16px;
+  filter: drop-shadow(4px 4px 4px #333);
   & p {
     font-weight: bold;
     font-size: calc(1em + 0.8vw);
-    margin: 20px 10px 0 10px;
+    line-height: 36px;
+    margin: 0 0 0 8px;
   }
+`;
+
+export const ProjectsIcon = styled(DevicesIcon)`
+  width: 36px !important;
+  height: 36px !important;
+  margin-left: 5%;
 `;
 
 export const ProjectsRow = styled.div`
@@ -172,10 +188,10 @@ export const ProjectsRow = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 94%;
+  box-sizing: border-box;
+  padding: 0 4vw;
   @media (max-width: 768px) {
     flex-direction: column;
-    width: 90%;
     justify-content: center;
   }
 `;
@@ -185,17 +201,17 @@ export const ProjectCard = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: 46%;
-  height: 160px;
+  width: calc(46vw - 42px);
+  min-height: 160px;
   background-color: #fff;
   border-radius: 10px;
-  margin: 10px 2%;
-  padding: 20px 12px;
+  margin: 16px;
+  padding: 12px;
   box-sizing: border-box;
   z-index: 1;
   @media (max-width: 768px) {
     width: 100%;
-    margin: 10px 0;
+    margin: 16px 0;
   }
   ${(props) => !props.production && 'opacity: 0.8; filter: brightness(0.7)'}
 `;
@@ -206,6 +222,10 @@ export const CardIcon = styled.img`
   border-radius: 16px;
   margin-right: 12px;
   filter: drop-shadow(4px 4px 8px #888);
+  @media (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
 `;
 
 export const CardContent = styled.div`
@@ -219,22 +239,53 @@ export const CardContent = styled.div`
 
 export const CardTitle = styled.span`
   font-size: 20px;
-  color: #333;
-  font-weight: bold;
+  color: #000;
+  font-weight: 900;
+  margin-bottom: 4px;
 `;
 
 export const CardDescription = styled.span`
   font-size: 12px;
-  color: #888;
-  margin: 6px 0;
+  color: #333;
+  margin-bottom: 6px;
 `;
 
-export const CardPlatforms = styled.span`
+export const CardAchievements = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+`;
+
+export const AchievIcon = styled(TrophyIcon)`
+  height: 20px !important;
+  color: #${(props) => {
+      switch (props.place) {
+        case 1:
+          return 'FEE101';
+        case 2:
+          return 'A7A7AD';
+        case 3:
+          return 'A77044';
+      }
+    }};
+`;
+
+export const Achievement = styled.span`
+  font-size: 10px;
+  line-height: 10px;
+  color: #555;
+`;
+
+export const CardPlatforms = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+  flex-wrap: wrap;
   width: 100%;
+  margin-top: 6px;
 `;
 
 export const PlatformTag = styled.div`
@@ -246,7 +297,7 @@ export const PlatformTag = styled.div`
   background-color: #30a2ff;
   border-radius: 4px;
   padding: 2px 6px;
-  margin-right: 4px;
+  margin: 0 4px 4px 0;
   height: 20px;
   transition: all 0.2s ease-in-out;
   a {
@@ -263,13 +314,6 @@ export const PlatformTag = styled.div`
 
 export const PlatformIcon = styled(LaunchIcon)`
   width: 18px !important;
-`;
-
-export const ProjectsIcon = styled(DevicesIcon)`
-  width: 60px !important;
-  height: 60px !important;
-  padding-top: 12px;
-  margin-left: 5%;
 `;
 
 export const SocialsContainer = styled.div`
@@ -337,13 +381,23 @@ export const SocialIcons = styled(FontAwesomeIcon)`
   height: 60px;
   margin-left: 16px;
   color: #30a2ff;
-  filter: drop-shadow(0px 0px 8px #222);
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  filter: drop-shadow(0px 0px 4px #222);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  animation: iconsBouncing 0.8s infinite alternate;
+  @keyframes iconsBouncing {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
   :hover {
-    transform: scale(1.3);
+    cursor: pointer;
+    color: #fff;
   }
   @media (max-width: 768px) {
     width: 32px;
@@ -353,29 +407,33 @@ export const SocialIcons = styled(FontAwesomeIcon)`
 
 export const ContactContent = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
   color: #fff;
+  background-color: #000;
+  padding-top: 32px;
 `;
 
 export const ContactHead = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 16px 0;
+  align-items: center;
   width: 100%;
+  margin-bottom: 16px;
+  filter: drop-shadow(4px 4px 4px #333);
   & p {
     font-weight: bold;
     font-size: calc(1em + 0.8vw);
-    margin: 20px 10px 0 10px;
+    line-height: 36px;
+    margin: 0 0 0 8px;
   }
 `;
 
 export const ContactIcon = styled(MailOutlineIcon)`
-  width: 60px !important;
-  height: 60px !important;
+  width: 36px !important;
+  height: 36px !important;
   margin-left: 5%;
 `;
 
@@ -384,7 +442,7 @@ export const ContactForm = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 500px;
-  margin: 0 5%;
+  margin: 16px 5%;
   @media (max-width: 768px) {
     max-width: 90%;
   }
@@ -491,7 +549,7 @@ export const ButtonFooterContainer = styled.div`
 export const ScrollTop = styled.div`
   height: 40px;
   width: 40px;
-  border-radius: 100%;
+  border-radius: 8px;
   text-decoration: none;
   color: #333;
   background-color: #fff;
@@ -511,7 +569,6 @@ export const ScrollTop = styled.div`
     }
   }
   :hover {
-    transform: scale(1.2);
     color: #fff;
     background-color: #30a2ff;
   }
@@ -532,7 +589,6 @@ export const Footer = styled.div`
   margin-bottom: 0px;
   width: 100%;
   color: #ccc;
-  background-color: #333;
 `;
 
 export const Copyright = styled.div`

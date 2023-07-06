@@ -164,13 +164,79 @@ export const socialButtons = [
   },
 ];
 
-export const Projects = [
+export const projects = [
   {
-    title: 'UTI AUX',
-    description: 'Aplicativo para auxiliar profissionais da saúde na UTI.',
-    icon: '',
-    urlWeb: '',
-    urlAndroid: '',
-    urlIphone: '',
+    icon: 'https://i.imgur.com/dEce2S9.png',
+    name: 'UTI AUX',
+    description:
+      'Conteúdo auxiliar para profissionais da saúde e estudantes da Unidade de Terapia Intensiva.',
+    platforms: [
+      { name: 'Web', url: 'https://utiaux.app/' },
+      {
+        name: 'Android',
+        url: 'https://play.google.com/store/apps/details?id=com.utiaux.utiaux',
+      },
+      {
+        name: 'iOS',
+        url: 'https://apps.apple.com/us/app/uti-aux/id1581031657',
+      },
+      {
+        name: 'Artigo',
+        url: 'https://journals.bahiana.edu.br/index.php/fisioterapia/article/view/4583',
+      },
+    ],
+    achievements: [
+      { place: 2, name: '[LabLuthier] Cases de Inovação Tecnológica' },
+      {
+        place: 3,
+        name: '[XIX SIFR] Simpósio Internacional de Fisioterapia Respiratória',
+      },
+    ],
+    production: true,
+  },
+  {
+    icon: 'https://i.imgur.com/UJsCgft.png',
+    name: 'Health Skill',
+    description:
+      'Plataforma de cursos e e-books voltada para profissionais da saúde.',
+    platforms: [
+      { name: 'Web', url: 'https://healthskill.app/' },
+      {
+        name: 'Android',
+        url: 'https://play.google.com/store/apps/details?id=com.life_panda.health_skill',
+      },
+      {
+        name: 'iOS',
+        url: 'https://apps.apple.com/us/app/health-skill/id6444901153',
+      },
+    ],
+    production: true,
+  },
+  {
+    icon: 'https://i.imgur.com/oIdyCfp.png',
+    name: 'Pega VS Pega',
+    description:
+      'Protótipo de jogo criado em 48 horas para participar de uma gamejam.',
+    platforms: [
+      { name: 'Windows', url: 'https://pasini.itch.io/pega-vs-pega' },
+    ],
+    achievements: [
+      { place: 2, name: '[Noneclass] Gamejam com tema "Meu prmeiro jogo"' },
+    ],
+    production: true,
+  },
+  {
+    icon: 'https://i.imgur.com/W7pMi1w.png',
+    name: 'Pokedex',
+    description:
+      'Listagem e busca de pokemon comum/shiny com visualização parallax.',
+    platforms: [{ name: 'Web', url: 'https://pokedex.pasini.dev/' }],
+    production: true,
+  },
+  {
+    icon: 'https://i.imgur.com/HEvVvIC.png',
+    name: 'La Vita',
+    description: 'Em construção...',
+    production: false,
   },
 ];
