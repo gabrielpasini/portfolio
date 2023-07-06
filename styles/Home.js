@@ -3,7 +3,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import DevicesIcon from '@material-ui/icons/ImportantDevices';
-import AccountBox from '@material-ui/icons/AccountBox';
+import LaunchIcon from '@material-ui/icons/Launch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const PageContainer = styled.div`
@@ -146,10 +146,10 @@ export const BottomIcon = styled(ExpandMoreIcon)`
 export const ProjectsContent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 100%;
   width: 100%;
+  min-height: 100vh;
   overflow: hidden;
   color: #fff;
 `;
@@ -157,11 +157,8 @@ export const ProjectsContent = styled.div`
 export const ProjectsHead = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin: 16px 0;
   width: 100%;
-  @media (max-width: 768px) {
-    margin-top: 0;
-  }
   & p {
     font-weight: bold;
     font-size: calc(1em + 0.8vw);
@@ -171,11 +168,101 @@ export const ProjectsHead = styled.div`
 
 export const ProjectsRow = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 94%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+  }
+`;
+
+export const ProjectCard = styled.div`
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  width: 46%;
+  height: 160px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 10px 2%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  z-index: 1;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 10px 0;
+  }
+  ${(props) => !props.production && 'opacity: 0.8; filter: brightness(0.7)'}
+`;
+
+export const CardIcon = styled.img`
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  margin-right: 12px;
+  filter: drop-shadow(4px 4px 8px #888);
+`;
+
+export const CardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
   height: 100%;
+`;
+
+export const CardTitle = styled.span`
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+`;
+
+export const CardDescription = styled.span`
+  font-size: 12px;
+  color: #888;
+  margin: 6px 0;
+`;
+
+export const CardPlatforms = styled.span`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+`;
+
+export const PlatformTag = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  background-color: #30a2ff;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 4px;
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+  a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #fff;
+    margin-right: 4px;
+  }
+  :hover {
+    cursor: pointer;
+    filter: drop-shadow(4px 4px 4px #888);
+  }
+`;
+
+export const PlatformIcon = styled(LaunchIcon)`
+  width: 18px !important;
 `;
 
 export const ProjectsIcon = styled(DevicesIcon)`
@@ -191,9 +278,13 @@ export const SocialsContainer = styled.div`
   justify-content: space-between;
   align-items: baseline;
   width: 88%;
-  height: 40px;
+  height: 60px;
   margin-top: 16px;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    height: 32px;
+  }
 `;
 
 export const BioInfo = styled.div`
@@ -207,7 +298,7 @@ export const BioTags = styled.div`
   justify-content: center;
   align-items: center;
   span {
-    font-size: 10px;
+    font-size: 14px;
     background-color: #fff;
     color: #30a2ff;
     border-radius: 4px;
@@ -215,14 +306,23 @@ export const BioTags = styled.div`
     margin-left: 8px;
     text-align: center;
     filter: drop-shadow(0px 0px 8px #222);
+
+    @media (max-width: 768px) {
+      font-size: 8px;
+    }
   }
 `;
 
 export const BioAvatar = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%;
   box-shadow: 0px 0px 8px #222;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 export const BioLinks = styled.div`
@@ -233,8 +333,8 @@ export const BioLinks = styled.div`
 `;
 
 export const SocialIcons = styled(FontAwesomeIcon)`
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin-left: 16px;
   color: #30a2ff;
   filter: drop-shadow(0px 0px 8px #222);
@@ -244,6 +344,10 @@ export const SocialIcons = styled(FontAwesomeIcon)`
   transition: all 0.2s ease-in-out;
   :hover {
     transform: scale(1.3);
+  }
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
   }
 `;
 
@@ -260,13 +364,12 @@ export const ContactContent = styled.div`
 export const ContactHead = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin-top: 20px;
+  margin: 16px 0;
   width: 100%;
   & p {
     font-weight: bold;
     font-size: calc(1em + 0.8vw);
-    margin: 0 12px;
+    margin: 20px 10px 0 10px;
   }
 `;
 
