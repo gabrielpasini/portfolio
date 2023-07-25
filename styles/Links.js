@@ -10,6 +10,21 @@ export const Content = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background: linear-gradient(45deg, #222, #444);
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 100%;
+    }
+    50% {
+      background-position: 100% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
 
   & > * {
     margin-bottom: 2%;
