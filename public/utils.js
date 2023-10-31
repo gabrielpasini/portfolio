@@ -195,6 +195,19 @@ export const projects = [
     production: true,
   },
   {
+    icon: 'https://i.imgur.com/lPjO8AX.jpg',
+    name: 'Notícias de tecnologia',
+    description:
+      'Robô que extrai notícias de uma Newsletter via e-mail, transforma em vídeo e posta no youtube automaticamente.',
+    platforms: [
+      {
+        name: 'Canal',
+        url: 'https://www.youtube.com/@noticiastecnologia-newsletter',
+      },
+    ],
+    production: true,
+  },
+  {
     icon: 'https://i.imgur.com/UJsCgft.png',
     name: 'Health Skill',
     description:
@@ -232,11 +245,5 @@ export const projects = [
       'Listagem e busca de pokemon comum/shiny com visualização parallax.',
     platforms: [{ name: 'Web', url: 'https://pokedex.pasini.dev/' }],
     production: true,
-  },
-  {
-    icon: 'https://i.imgur.com/HEvVvIC.png',
-    name: 'La Vita',
-    description: 'Em construção...',
-    production: false,
   },
 ];
