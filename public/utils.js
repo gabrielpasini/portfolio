@@ -204,6 +204,10 @@ export const projects = [
         name: 'Canal',
         url: 'https://www.youtube.com/@noticiastecnologia-newsletter',
       },
+      {
+        name: 'Github',
+        url: 'https://github.com/gabrielpasini/newsletter_robot/',
+      },
     ],
     production: true,
   },
@@ -243,7 +247,10 @@ export const projects = [
     name: 'Pokedex',
     description:
       'Listagem e busca de pokemon comum/shiny com visualização parallax.',
-    platforms: [{ name: 'Web', url: 'https://pokedex.pasini.dev/' }],
+    platforms: [
+      { name: 'Web', url: 'https://pokedex.pasini.dev/' },
+      { name: 'Github', url: 'https://github.com/gabrielpasini/pokedex/' },
+    ],
     production: true,
   },
 ];
