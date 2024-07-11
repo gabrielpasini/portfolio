@@ -50,14 +50,16 @@ import {
   CardAchievements,
   AchievIcon,
   Achievement,
+  Parallax,
 } from '../styles/Home';
+
+const parallaxRange = 40;
 
 const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
 
 const Home = () => {
-  const [name, setName] = useState('');
+  let timeout;
   const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -65,21 +67,11 @@ const Home = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [pageWidth, setPageWidth] = useState(0);
-  const [randomColor, setRandomColor] = useState('#fff');
 
-  const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    setRandomColor(color);
-  };
+  const isMobile = pageWidth < 768;
 
   const cleanForm = () => {
-    setName('');
     setEmail('');
-    setSubject('');
     setMessage('');
   };
 
@@ -91,6 +83,23 @@ const Home = () => {
       inline: 'nearest',
     });
   };
+
+  function calcValue(a, b) {
+    return ((a / b) * parallaxRange - parallaxRange / 2).toFixed(1);
+  }
+
+  function animate({ x, y }) {
+    if (timeout) window?.cancelAnimationFrame(timeout);
+
+    timeout = window?.requestAnimationFrame(() => {
+      const parallaxElement = document.getElementById('parallax');
+
+      const yValue = calcValue(y, window?.innerHeight);
+      const xValue = calcValue(x, window?.innerWidth);
+
+      parallaxElement.style.transform = `rotateX(${-yValue}deg) rotateY(${xValue}deg)`;
+    });
+  }
 
   const getCurrentYear = () => new Date().getFullYear();
 
@@ -107,11 +116,10 @@ const Home = () => {
     setLoading(true);
     try {
       const sendedEmail = await Axios.post(`email/gabriel`, {
-        nome: name,
         email: email,
-        assunto: subject,
         mensagem: message,
       });
+
       if (sendedEmail?.data?.status === 'success') {
         setShowSuccess(true);
         setShowError(false);
@@ -129,9 +137,16 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setPageWidth(window.innerWidth);
-    getRandomColor();
+    setPageWidth(window?.innerWidth);
   }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      document.onmousemove = undefined;
+      return;
+    }
+    document.onmousemove = ({ x, y }) => animate({ x, y });
+  }, [isMobile]);
 
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
@@ -141,50 +156,50 @@ const Home = () => {
     <>
       <PageContainer>
         <HomeContent id="home">
-          <Subtitle>
-            <Fade left ssrReveal cascade duration={400}>
-              GABRIEL PASINI
-            </Fade>
-          </Subtitle>
-          <TitleLogo title="SOFTWARE DEVELOPER" randomcolor={randomColor}>
-            SOFTWARE DEVELOPER
-          </TitleLogo>
           <Particles
             style={bgStyle}
             id="particles"
             init={particlesInit}
             options={bgParams}
           />
-          <SocialsContainer>
-            <Fade left ssrReveal cascade delay={200} duration={400}>
-              <BioInfo>
-                <BioAvatar
-                  src="https://avatars.githubusercontent.com/u/34244299?v=4"
-                  alt="avatar"
-                />
-                <BioTags>
-                  <span>25/05/1995</span>
-                  <span>Alvorada - RS</span>
-                </BioTags>
-              </BioInfo>
-              <BioLinks>
-                <Link href="https://github.com/gabrielpasini">
-                  <a target="_blank">
-                    <Flip right ssrReveal delay={600} duration={1000}>
-                      <SocialIcons icon={faGithub} />
-                    </Flip>
-                  </a>
-                </Link>
-                <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
-                  <a target="_blank">
-                    <Flip right ssrReveal delay={650} duration={1000}>
-                      <SocialIcons icon={faLinkedinIn} />
-                    </Flip>
-                  </a>
-                </Link>
-              </BioLinks>
-            </Fade>
-          </SocialsContainer>
+          <Parallax id="parallax">
+            <Subtitle>
+              <Fade left ssrReveal cascade duration={400}>
+                GABRIEL PASINI
+              </Fade>
+            </Subtitle>
+            <TitleLogo>SOFTWARE DEVELOPER</TitleLogo>
+            <SocialsContainer>
+              <Fade left ssrReveal cascade delay={200} duration={400}>
+                <BioInfo>
+                  <BioAvatar
+                    src="https://avatars.githubusercontent.com/u/34244299?v=4"
+                    alt="avatar"
+                  />
+                  <BioTags>
+                    <span>25/05/1995</span>
+                    <span>Alvorada - RS</span>
+                  </BioTags>
+                </BioInfo>
+                <BioLinks>
+                  <Link href="https://github.com/gabrielpasini">
+                    <a target="_blank">
+                      <Flip right ssrReveal delay={600} duration={1000}>
+                        <SocialIcons icon={faGithub} />
+                      </Flip>
+                    </a>
+                  </Link>
+                  <Link href="https://www.linkedin.com/in/gabriel-pasini-963006180/">
+                    <a target="_blank">
+                      <Flip right ssrReveal delay={650} duration={1000}>
+                        <SocialIcons icon={faLinkedinIn} />
+                      </Flip>
+                    </a>
+                  </Link>
+                </BioLinks>
+              </Fade>
+            </SocialsContainer>
+          </Parallax>
           <ButtonHomeContainer>
             <Fade bottom ssrReveal delay={500} duration={1000}>
               <ScrollDown onClick={() => scrollTo('projects')}>
@@ -247,13 +262,6 @@ const Home = () => {
           <ContactForm noValidate autoComplete="off">
             <Fade left ssrReveal cascade duration={500}>
               <InputText
-                id="nome"
-                type="text"
-                placeholder="digite o seu nome"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-              />
-              <InputText
                 id="email"
                 type="email"
                 placeholder="digite o seu e-mail"
@@ -264,25 +272,15 @@ const Home = () => {
                   setShowError(false);
                 }}
               />
-              <InputText
-                id="assunto"
-                type="text"
-                placeholder="digite o assunto"
-                value={subject}
-                onChange={(event) => setSubject(event.target.value)}
-              />
               <InputTextArea
                 id="mensagem"
                 type="textarea"
                 placeholder="digite a mensagem"
-                rows={pageWidth > 768 ? 4 : 1}
+                rows={isMobile ? 1 : 4}
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
               />
-              <SendButton
-                disabled={!name || !email || !subject || !message}
-                onClick={submitEmail}
-              >
+              <SendButton disabled={!email || !message} onClick={submitEmail}>
                 <span>enviar</span>
                 <SendIcon />
               </SendButton>

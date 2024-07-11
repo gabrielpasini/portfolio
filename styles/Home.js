@@ -44,62 +44,122 @@ export const HomeContent = styled.div`
   }
 `;
 
+export const Parallax = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70vw;
+  transform-style: preserve-3d;
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+`;
+
 export const TitleLogo = styled.div`
-  z-index: 1;
-  font-size: max(60px, 16vw);
-  width: 90%;
+  font-size: max(60px, 13vw);
   line-height: 0.8em;
   color: #fff;
-  text-shadow: 0px 0px 20px #222;
-  animation: glitch 5s alternate infinite;
-  :before {
-    content: attr(title);
-    position: fixed;
+  text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6);
+  transform: translateZ(48px);
+`;
+
+export const Subtitle = styled.span`
+  font-size: max(24px, 3vw);
+  text-align: left;
+  width: 100%;
+  color: #30a2ff;
+  text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6);
+  transform: translateZ(64px);
+`;
+
+export const SocialsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  height: 60px;
+  margin-top: 16px;
+  transform: translateZ(64px);
+
+  @media (max-width: 768px) {
+    height: 32px;
   }
-  :before {
-    text-shadow: none;
-    animation: glitchTop 2s alternate infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
-  }
-  @keyframes glitch {
-    2%,
-    64% {
-      transform: translate(2px, 0) skew(0deg);
-    }
-    4%,
-    60% {
-      transform: translate(-2px, 0) skew(0deg);
-    }
-    62% {
-      transform: translate(0, 0) skew(5deg);
-    }
-  }
-  @keyframes glitchTop {
-    2%,
-    64% {
-      transform: translate(2px, -2px);
-      color: #fff;
-    }
-    4%,
-    60% {
-      transform: translate(0, 0);
-      color: #fff;
-    }
-    62% {
-      transform: translate(40px, 0) skew(-10deg);
-      color: ${(props) => props.randomcolor};
+`;
+
+export const BioInfo = styled.div`
+  display: flex;
+  flex: 0.5;
+`;
+
+export const BioTags = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 14px;
+    background-color: #fff;
+    color: #30a2ff;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: 8px;
+    text-align: center;
+    filter: drop-shadow(0px 0px 12px rgba(0, 0, 0, 0.6));
+
+    @media (max-width: 768px) {
+      font-size: 8px;
     }
   }
 `;
 
-export const Subtitle = styled.span`
-  z-index: 1;
-  font-size: max(24px, 4vw);
-  text-align: left;
-  width: 88%;
+export const BioAvatar = styled.img`
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6);
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+`;
+
+export const BioLinks = styled.div`
+  display: flex;
+  flex: 0.5;
+  justify-self: flex-end;
+  margin: 0 16px;
+`;
+
+export const SocialIcons = styled(FontAwesomeIcon)`
+  width: 60px;
+  height: 60px;
+  margin-left: 16px;
   color: #30a2ff;
-  text-shadow: 0px 0px 20px #222;
+  filter: drop-shadow(0px 0px 12px rgba(0, 0, 0, 0.6));
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  animation: iconsBouncing 0.8s infinite alternate;
+  @keyframes iconsBouncing {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  :hover {
+    cursor: pointer;
+    color: #fff;
+  }
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 export const ButtonHomeContainer = styled.div`
@@ -314,95 +374,6 @@ export const PlatformTag = styled.div`
 
 export const PlatformIcon = styled(LaunchIcon)`
   width: 18px !important;
-`;
-
-export const SocialsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  width: 88%;
-  height: 60px;
-  margin-top: 16px;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    height: 32px;
-  }
-`;
-
-export const BioInfo = styled.div`
-  display: flex;
-  flex: 0.5;
-`;
-
-export const BioTags = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  span {
-    font-size: 14px;
-    background-color: #fff;
-    color: #30a2ff;
-    border-radius: 4px;
-    padding: 2px 6px;
-    margin-left: 8px;
-    text-align: center;
-    filter: drop-shadow(0px 0px 8px #222);
-
-    @media (max-width: 768px) {
-      font-size: 8px;
-    }
-  }
-`;
-
-export const BioAvatar = styled.img`
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  box-shadow: 0px 0px 8px #222;
-
-  @media (max-width: 768px) {
-    width: 32px;
-    height: 32px;
-  }
-`;
-
-export const BioLinks = styled.div`
-  display: flex;
-  flex: 0.5;
-  justify-self: flex-end;
-  margin: 0 16px;
-`;
-
-export const SocialIcons = styled(FontAwesomeIcon)`
-  width: 60px;
-  height: 60px;
-  margin-left: 16px;
-  color: #30a2ff;
-  filter: drop-shadow(0px 0px 4px #222);
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  animation: iconsBouncing 0.8s infinite alternate;
-  @keyframes iconsBouncing {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.1);
-    }
-  }
-  :hover {
-    cursor: pointer;
-    color: #fff;
-  }
-  @media (max-width: 768px) {
-    width: 32px;
-    height: 32px;
-  }
 `;
 
 export const ContactContent = styled.div`
