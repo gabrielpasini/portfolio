@@ -235,7 +235,7 @@ export const projects = [
     description:
       'Protótipo de jogo criado em 48 horas para participar de uma gamejam.',
     platforms: [
-      { name: 'Windows', url: 'https://pasini.itch.io/pega-vs-pega' },
+      { name: 'Itch.io', url: 'https://pasini.itch.io/pega-vs-pega' },
       { name: 'Github', url: 'https://github.com/gabrielpasini/nonejam' },
     ],
     achievements: [
