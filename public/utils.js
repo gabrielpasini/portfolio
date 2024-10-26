@@ -196,7 +196,7 @@ export const projects = [
   },
   {
     icon: 'https://drive.google.com/file/d/19AZ4ldE-V_V5yMy-ClRaYrvarL2lvA4P/view?usp=drivesdk',
-    name: 'Draginn'Up',
+    name: "Draginn'Up",
     description:
       'Jogo criado em 45 horas para participar da etapa regional da gamejam+.',
     platforms: [
