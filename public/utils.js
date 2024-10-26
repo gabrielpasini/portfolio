@@ -195,19 +195,29 @@ export const projects = [
     production: true,
   },
   {
-    icon: 'https://i.imgur.com/lPjO8AX.jpg',
-    name: 'Notícias de tecnologia',
+    icon: 'https://drive.google.com/file/d/19AZ4ldE-V_V5yMy-ClRaYrvarL2lvA4P/view?usp=drivesdk',
+    name: 'Draginn'Up',
     description:
-      'Robô que extrai notícias de uma Newsletter via e-mail, transforma em vídeo e posta no youtube automaticamente.',
+      'Jogo criado em 45 horas para participar da etapa regional da gamejam+.',
     platforms: [
-      {
-        name: 'Canal',
-        url: 'https://www.youtube.com/@noticiastecnologia-newsletter',
-      },
-      {
-        name: 'Github',
-        url: 'https://github.com/gabrielpasini/newsletter_robot/',
-      },
+      { name: 'Itch.io', url: 'https://rhurin.itch.io/dragginup' },
+    ],
+    achievements: [
+      { place: 3, name: '[Gamejam+] Tema da jam "Retro"' },
+    ],
+    production: true,
+  },
+  {
+    icon: 'https://i.imgur.com/oIdyCfp.png',
+    name: 'Pega VS Pega',
+    description:
+      'Protótipo de jogo criado em 48 horas para participar de uma gamejam.',
+    platforms: [
+      { name: 'Itch.io', url: 'https://pasini.itch.io/pega-vs-pega' },
+      { name: 'Github', url: 'https://github.com/gabrielpasini/nonejam' },
+    ],
+    achievements: [
+      { place: 2, name: '[Noneclass] Gamejam com tema "Meu prmeiro jogo"' },
     ],
     production: true,
   },
@@ -230,16 +240,19 @@ export const projects = [
     production: true,
   },
   {
-    icon: 'https://i.imgur.com/oIdyCfp.png',
-    name: 'Pega VS Pega',
+    icon: 'https://i.imgur.com/lPjO8AX.jpg',
+    name: 'Notícias de tecnologia',
     description:
-      'Protótipo de jogo criado em 48 horas para participar de uma gamejam.',
+      'Robô que extrai notícias de uma Newsletter via e-mail, transforma em vídeo e posta no youtube automaticamente.',
     platforms: [
-      { name: 'Itch.io', url: 'https://pasini.itch.io/pega-vs-pega' },
-      { name: 'Github', url: 'https://github.com/gabrielpasini/nonejam' },
-    ],
-    achievements: [
-      { place: 2, name: '[Noneclass] Gamejam com tema "Meu prmeiro jogo"' },
+      {
+        name: 'Canal',
+        url: 'https://www.youtube.com/@noticiastecnologia-newsletter',
+      },
+      {
+        name: 'Github',
+        url: 'https://github.com/gabrielpasini/newsletter_robot/',
+      },
     ],
     production: true,
   },
