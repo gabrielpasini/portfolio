@@ -197,13 +197,14 @@ export const projects = [
   {
     icon: 'https://i.imgur.com/FKO92sA.jpeg',
     name: "Draginn'Up",
-    description:
-      'Jogo criado em 45 horas para participar da etapa regional da gamejam+.',
-    platforms: [
-      { name: 'Itch.io', url: 'https://rhurin.itch.io/dragginup' },
-    ],
+    description: 'Jogo criado para participar da Gamejam+ 24/25.',
+    platforms: [{ name: 'Itch.io', url: 'https://rhurin.itch.io/dragginup' }],
     achievements: [
-      { place: 3, name: '[Gamejam+] Tema da jam "Retro"' },
+      { place: 1, name: 'Etapa Mundial Melhor jogo pela WILDLIFE' },
+      { place: 1, name: 'Etapa Mundial Melhor jogo escolha popular' },
+      { place: 1, name: 'Etapa Nacional Melhor jogo do BRASIL' },
+      { place: 1, name: 'Etapa Nacional Melhor jogo da Região Sul' },
+      { place: 3, name: 'Etapa Regional presencial em parceria com ADJogosRS' },
     ],
     production: true,
   },

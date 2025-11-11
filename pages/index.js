@@ -296,7 +296,7 @@ const Home = () => {
             </ButtonFooterContainer>
             <LightSpeed left ssrReveal delay={1000} duration={800}>
               <Copyright>
-                &copy; Copyright {getCurrentYear()} pasini.dev CNPJ: 57.437.573/0001-02
+                &copy; Copyright {getCurrentYear()} Gabriel Pasini
               </Copyright>
             </LightSpeed>
           </Footer>
