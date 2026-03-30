@@ -24,7 +24,7 @@ const fadeRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 1, delay: 2 } },
 };
 
-const MyLinks = () => {
+const Links = () => {
   const [particlesReady, setParticlesReady] = useState(false);
 
   useEffect(() => {
@@ -104,4 +104,4 @@ const MyLinks = () => {
   );
 };
 
-export default MyLinks;
+export default Links;
