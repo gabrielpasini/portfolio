@@ -1,1 +1,1 @@
-Portfólio desenvolvido em React utilizando a tecnologia NextJS
+Portfólio pessoal desenvolvido com React + Vite

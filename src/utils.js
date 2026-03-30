@@ -28,9 +28,6 @@ export const bgParams = {
     color: { value: '#000' },
     opacity: 0,
   },
-  color: {
-    value: '#fff',
-  },
   particles: {
     color: {
       value: '#fff',
@@ -58,9 +55,9 @@ export const bgParams = {
     number: {
       density: {
         enable: true,
-        area: 400,
+        area: 200,
       },
-      value: 30,
+      value: 80,
     },
     opacity: {
       value: 0.5,
@@ -72,9 +69,15 @@ export const bgParams = {
   detectRetina: true,
   interactivity: {
     events: {
-      onhover: {
+      onHover: {
         enable: true,
         mode: 'repulse',
+      },
+    },
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4,
       },
     },
   },
@@ -95,52 +98,6 @@ export const allButtons = [
     title: 'github',
     icon: faGithub,
     url: 'https://github.com/gabrielpasini',
-  },
-  {
-    title: 'discord',
-    icon: faDiscord,
-    url: 'https://discord.gg/H32A8jw',
-  },
-  {
-    title: 'steam',
-    icon: faSteam,
-    url: 'https://steamcommunity.com/id/faiskera/',
-  },
-  {
-    title: 'twitch',
-    icon: faTwitch,
-    url: 'https://twitch.tv/f4isk4',
-  },
-  {
-    title: 'youtube',
-    icon: faYoutube,
-    url: 'https://www.youtube.com/channel/UCozHr9pJQPHNcmjvM4ELVRQ',
-  },
-];
-
-export const professionalButtons = [
-  {
-    title: 'instagram',
-    icon: faInstagram,
-    url: 'https://www.instagram.com/pasini.dev/',
-  },
-  {
-    title: 'linkedin',
-    icon: faLinkedinIn,
-    url: 'https://www.linkedin.com/in/gabriel-pasini-963006180/',
-  },
-  {
-    title: 'github',
-    icon: faGithub,
-    url: 'https://github.com/gabrielpasini',
-  },
-];
-
-export const socialButtons = [
-  {
-    title: 'instagram',
-    icon: faInstagram,
-    url: 'https://www.instagram.com/pasini.dev/',
   },
   {
     title: 'discord',
