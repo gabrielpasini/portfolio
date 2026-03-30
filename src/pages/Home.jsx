@@ -214,102 +214,102 @@ const Home = () => {
 
         <div className={styles.projectsSection}>
           <div className={styles.projectsContent} id="projects">
-          <div className={styles.projectsHead}>
-            <ImportantDevicesIcon className={styles.projectsIcon} />
-            <p>Meus projetos</p>
-          </div>
-          <div className={styles.projectsRow}>
-            {projects?.length > 0 &&
-              projects.map((project) => (
-                <motion.div
-                  className={
-                    project.production
-                      ? styles.projectCard
-                      : styles.projectCardInactive
-                  }
-                  key={project.name}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeIn}
-                >
-                  <img
-                    className={styles.cardIcon}
-                    src={project.icon}
-                    alt={project.name}
-                  />
-                  <div className={styles.cardContent}>
-                    <span className={styles.cardTitle}>{project.name}</span>
-                    <span className={styles.cardDescription}>
-                      {project.description}
-                    </span>
-                    {project.achievements?.length > 0 &&
-                      project.achievements.map((achiev) => (
-                        <div
-                          className={styles.cardAchievements}
-                          key={achiev.name}
-                        >
-                          <EmojiEventsIcon
-                            className={
-                              achievIconClassMap[achiev.place] ||
-                              styles.achievIconBronze
-                            }
-                          />
-                          <span className={styles.achievement}>
-                            {achiev.place}° - {achiev.name}
-                          </span>
-                        </div>
-                      ))}
-                    <div className={styles.cardPlatforms}>
-                      {project.platforms?.length > 0 &&
-                        project.platforms.map((platform) => (
+            <div className={styles.projectsHead}>
+              <ImportantDevicesIcon className={styles.projectsIcon} />
+              <p>Meus projetos</p>
+            </div>
+            <div className={styles.projectsRow}>
+              {projects?.length > 0 &&
+                projects.map((project) => (
+                  <motion.div
+                    className={
+                      project.production
+                        ? styles.projectCard
+                        : styles.projectCardInactive
+                    }
+                    key={project.name}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeIn}
+                  >
+                    <img
+                      className={styles.cardIcon}
+                      src={project.icon}
+                      alt={project.name}
+                    />
+                    <div className={styles.cardContent}>
+                      <span className={styles.cardTitle}>{project.name}</span>
+                      <span className={styles.cardDescription}>
+                        {project.description}
+                      </span>
+                      {project.achievements?.length > 0 &&
+                        project.achievements.map((achiev) => (
                           <div
-                            className={styles.platformTag}
-                            key={platform.name}
+                            className={styles.cardAchievements}
+                            key={achiev.name}
                           >
-                            <a
-                              href={platform.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {platform.name}
-                            </a>
-                            <LaunchIcon className={styles.platformIcon} />
+                            <EmojiEventsIcon
+                              className={
+                                achievIconClassMap[achiev.place] ||
+                                styles.achievIconBronze
+                              }
+                            />
+                            <span className={styles.achievement}>
+                              {achiev.place}° - {achiev.name}
+                            </span>
                           </div>
                         ))}
+                      <div className={styles.cardPlatforms}>
+                        {project.platforms?.length > 0 &&
+                          project.platforms.map((platform) => (
+                            <div
+                              className={styles.platformTag}
+                              key={platform.name}
+                            >
+                              <a
+                                href={platform.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {platform.name}
+                              </a>
+                              <LaunchIcon className={styles.platformIcon} />
+                            </div>
+                          ))}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+            </div>
           </div>
-        </div>
 
-        <div className={styles.footer}>
-          <div className={styles.buttonFooterContainer}>
+          <div className={styles.footer}>
+            <div className={styles.buttonFooterContainer}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeRight}
+              >
+                <div
+                  className={styles.scrollTop}
+                  onClick={() => scrollTo('home')}
+                >
+                  <ExpandLessIcon size={40} />
+                </div>
+              </motion.div>
+            </div>
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={fadeRight}
+              variants={slideLeft}
             >
-              <div
-                className={styles.scrollTop}
-                onClick={() => scrollTo('home')}
-              >
-                <ExpandLessIcon size={40} />
+              <div className={styles.copyright}>
+                &copy; Copyright {currentYear} Gabriel Pasini
               </div>
             </motion.div>
-          </div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={slideLeft}
-          >
-            <div className={styles.copyright}>
-              &copy; Copyright {currentYear} Gabriel Pasini
-            </div>
-          </motion.div>
           </div>
         </div>
       </div>
